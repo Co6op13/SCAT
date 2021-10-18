@@ -8,9 +8,15 @@ public class Tentacle : MonoBehaviour
     [SerializeField] private float lengthSegment;
     [SerializeField] private float smoothSpeed;
     [SerializeField] private float trailSpeed;
+    [Space(5)]
+    [SerializeField] private float wiggleSpeed;
+    [SerializeField] private float wiggleMagnityde;
+    [SerializeField] private Transform wiggleDirection;
     [SerializeField] private LineRenderer lineRenderer;
     [SerializeField] private Vector3[] segmentPosition;
     [SerializeField] private Transform targetDirection;
+
+
     
 
     private Vector3[] segmentVelocity;
@@ -24,6 +30,7 @@ public class Tentacle : MonoBehaviour
 
     private void Update()
     {
+        wiggleDirection.localRotation = Quaternion.Euler(0, 0, Mathf.Sin(Time.deltaTime * wiggleSpeed) * wiggleMagnityde);
         segmentPosition[0] = targetDirection.position;
 
         for (int i = 1; i < segmentPosition.Length; i++)
