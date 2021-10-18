@@ -109,6 +109,12 @@ public class BezierSplineInspector : Editor
 			spline.AddCurve();
 			EditorUtility.SetDirty(spline);
 		}
+		if (GUILayout.Button("Delete Curve"))
+		{
+			Undo.RecordObject(spline, "Delete Curve");
+			spline.DeleteCurve();
+			EditorUtility.SetDirty(spline);
+		}
 	}
 
 	private void DrawSelectedPointInspector()

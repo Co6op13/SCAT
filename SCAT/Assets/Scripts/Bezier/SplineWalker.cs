@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SplineWalker : MonoBehaviour
 {
-    const float normalizedSpeed = 0.1f;
+    const float normalizedSpeed = 0.01f;
     [SerializeField] private SplineWalkerMode mode;
     
     [SerializeField] private BezierSpline path;
@@ -53,6 +53,7 @@ public class SplineWalker : MonoBehaviour
             }
 
         }
+        Debug.Log(progress);
             position = path.GetPoint(progress);
             if (lookForward)
             {                
@@ -66,7 +67,14 @@ public class SplineWalker : MonoBehaviour
         transform.localPosition = position;
     }
 
-    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+
+            Debug.Log("test1");
+            Debug.Log(collision.name);
+        
+    }
+
 
 
 }

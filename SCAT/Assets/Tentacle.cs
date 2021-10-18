@@ -5,19 +5,20 @@ using UnityEngine;
 public class Tentacle : MonoBehaviour
 {
     [SerializeField] private int length;
+    [SerializeField] private Vector3[] segmentPosition;
+    [SerializeField] private Transform targetDirection;
+
     [SerializeField] private float lengthSegment;
     [SerializeField] private float smoothSpeed;
     [SerializeField] private float trailSpeed;
     [Space(5)]
     [SerializeField] private float wiggleSpeed;
     [SerializeField] private float wiggleMagnityde;
-    [SerializeField] private Transform wiggleDirection;
-    [SerializeField] private LineRenderer lineRenderer;
-    [SerializeField] private Vector3[] segmentPosition;
-    [SerializeField] private Transform targetDirection;
+    [SerializeField] private Transform wiggleDirection;    
 
 
-    
+    private LineRenderer lineRenderer;
+
 
     private Vector3[] segmentVelocity;
     private void Start()
