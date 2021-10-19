@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &499230787593104836
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 499230787593104838}
+  - component: {fileID: 499230787593104839}
+  m_Layer: 0
+  m_Name: PathSin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &499230787593104838
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 499230787593104836}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &499230787593104839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 499230787593104836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5ffca41e67b75049b9de6828bb7bdbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points:
+  - {x: 0, y: 0, z: 0}
+  - {x: -4, y: 8, z: 0}
+  - {x: -4, y: -8, z: 0}
+  - {x: -8, y: 0, z: 0}
+  - {x: -12, y: 8, z: 0}
+  - {x: -12, y: -8, z: 0}
+  - {x: -16, y: 0, z: 0}
+  - {x: -20, y: 8, z: 0}
+  - {x: -20, y: -8, z: 0}
+  - {x: -24, y: 0, z: 0}
+  - {x: -28, y: 8, z: 0}
+  - {x: -28, y: -8, z: 0}
+  - {x: -32, y: 0, z: 0}
+  - {x: -36, y: 8, z: 0}
+  - {x: -36, y: -8, z: 0}
+  - {x: -40, y: 0, z: 0}
+  - {x: -44, y: 8, z: 0}
+  - {x: -44, y: -8.398029, z: 0}
+  - {x: -48, y: 0, z: 0}
+  - {x: -52, y: 8.398029, z: 0}
+  - {x: -52, y: -8, z: 0}
+  - {x: -56, y: 0, z: 0}
+  - {x: -60, y: 8, z: 0}
+  - {x: -60, y: -8, z: 0}
+  - {x: -64, y: 0, z: 0}
+  - {x: -68, y: 8, z: 0}
+  - {x: -68, y: -8, z: 0}
+  - {x: -72, y: 0, z: 0}
+  - {x: -76, y: 8, z: 0}
+  - {x: -76, y: -8, z: 0}
+  - {x: -80, y: 0, z: 0}
+  - {x: -84, y: 8, z: 0}
+  - {x: -84, y: -8, z: 0}
+  - {x: -88, y: 0, z: 0}
+  modes: 000000000200000002000000020000000200000002000000020000000200000002000000020000000200000002000000
+  loop: 0

@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
-    private PlayerData _player;
+    private PlayerData player;
     // Start is called before the first frame update
     void Start()
     {
-        _player = GetComponent<PlayerData>();        
+        player = GetComponent<PlayerData>();        
     }
 
     // Update is called once per frame
@@ -16,11 +16,11 @@ public class PlayerInput : MonoBehaviour
     {
         if (Input.GetButtonDown("Locked"))
         {
-            _player.isExtraGunLocked = !_player.isExtraGunLocked;
+            player.isExtraGunLocked = !player.isExtraGunLocked;
         }
 
         var x = Input.GetAxisRaw("Horizontal");
         var y = Input.GetAxisRaw("Vertical");
-        _player._moveDirection = new Vector2(x, y);
+        player.moveDirection = new Vector2(x, y);
     }
 }

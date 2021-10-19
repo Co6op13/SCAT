@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class SplineWalker : MonoBehaviour
 {
+    [SerializeField] private bool isActiv = false;
     const float normalizedSpeed = 0.01f;
-    [SerializeField] private SplineWalkerMode mode;
-    
+    [SerializeField] private SplineWalkerMode mode;    
     [SerializeField] private BezierSpline path;
     [SerializeField] float speedMovement;
     [SerializeField] private bool lookForward;
     [SerializeField] private bool goingForward = true;
     private float progress;
     private Vector3 position;
+
+    public BezierSpline Path {set => path = value; }
+    public bool IsActiv {set => isActiv = value; }
+    public float SpeedMovement {set => speedMovement = value; }
 
     private void Start()
     {
@@ -23,58 +27,50 @@ public class SplineWalker : MonoBehaviour
     }
     private void Update()
     {
-        if (goingForward)
+        if (isActiv)
         {
-            progress += speedMovement * normalizedSpeed * Time.deltaTime;
-            if (progress > 1f)
+            if (goingForward)
             {
-                if (mode == SplineWalkerMode.Once)
+                progress += speedMovement * normalizedSpeed * Time.deltaTime;
+                if (progress > 1f)
                 {
-                    progress = 1f;
-                }
-                else if (mode == SplineWalkerMode.Loop)
-                {
-                    progress -= 1f;
-                }
-                else
-                {
-                    progress = 2f - progress;
-                    goingForward = false;
+                    if (mode == SplineWalkerMode.Once)
+                    {
+                        progress = 1f;
+                    }
+                    else if (mode == SplineWalkerMode.Loop)
+                    {
+                        progress -= 1f;
+                    }
+                    else
+                    {
+                        progress = 2f - progress;
+                        goingForward = false;
+                    }
                 }
             }
-        }
-        else
+            else
             {
-            progress -= speedMovement * normalizedSpeed * Time.deltaTime;
-            if (progress < 0f)
-            {
-                progress -= progress;
-                goingForward = true;
-            }
+                progress -= speedMovement * normalizedSpeed * Time.deltaTime;
+                if (progress < 0f)
+                {
+                    progress -= progress;
+                    goingForward = true;
+                }
 
-        }
-        Debug.Log(progress);
+            }
+            // Debug.Log(progress);
             position = path.GetPoint(progress);
             if (lookForward)
-            {                
-                transform.LookAt(position + path.GetDirection(progress));                
+            {
+                transform.LookAt(position + path.GetDirection(progress));
             }
-     
+        }
     }
 
     private void FixedUpdate()
     {
+        if (isActiv)
         transform.localPosition = position;
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-
-            Debug.Log("test1");
-            Debug.Log(collision.name);
-        
-    }
-
-
-
 }

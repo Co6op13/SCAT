@@ -5,28 +5,28 @@ using UnityEngine;
 public class ExtraWeapon : MonoBehaviour
 {
 
-    [SerializeField] private Transform _topGun;
-    [SerializeField] private Transform _bottomGun;
+    [SerializeField] private Transform topGun;
+    [SerializeField] private Transform bottomGun;
 
     [SerializeField, Range(-20, 20)] private int step = 1;
 
-    private float _deltaTimeMove;
-    private bool _isMovePositive = true;
+    private float deltaTimeMove;
+    //private bool isMovePositive = true;
     private int position = 0;
-    private PlayerData _player;
+    private PlayerData player;
     // Start is called before the first frame update
     void Start()
     {
-        _player = transform.GetComponent<PlayerData>();
-        _deltaTimeMove = Time.time;
+        player = transform.GetComponent<PlayerData>();
+        deltaTimeMove = Time.time;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (_player.isExtraGunLocked) 
+        if (player.isExtraGunLocked) 
         {
-            MoveGunArround(_topGun);
+            MoveGunArround(topGun);
             
         }
        // Debug.Log(Time.time);
@@ -34,17 +34,17 @@ public class ExtraWeapon : MonoBehaviour
 
     void MoveGunArround(Transform gun )
     {
-        if (_deltaTimeMove < Time.time)
+        if (deltaTimeMove < Time.time)
         {
             if (position > 90 || position < -90)
                 SwitchDirection();
-           // Debug.Log(_deltaTimeMove);
-            _deltaTimeMove = Time.time + _player._speedMoveExtraGun;
+           // Debug.Log(deltaTimeMove);
+            deltaTimeMove = Time.time + player.speedMoveExtraGun;
             position = position + step;
             Quaternion topTarget = Quaternion.Euler(0, 0, position);
             Quaternion bootomTarget = Quaternion.Euler(0, 0, -position);
-            _topGun.rotation = topTarget;
-            _bottomGun.rotation = bootomTarget;
+            topGun.rotation = topTarget;
+            bottomGun.rotation = bootomTarget;
         }
     }
 
