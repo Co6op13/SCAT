@@ -33,6 +33,8 @@ public class Bullet : MonoBehaviour,iProjectile
             collision.gameObject.GetComponent<HP>().GetDamage(damage);
             Destroy(gameObject);
         }
+        if (collision.gameObject.GetComponent<DestroyWall>() != null)
+            Destroy(gameObject);
     }
 
     public void SetDamage(int damage)

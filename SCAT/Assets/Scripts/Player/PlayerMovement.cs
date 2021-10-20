@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-       player.rb2D.MovePosition(player.rb2D.position + velocity * Time.fixedDeltaTime * player.speedMovement);
+       //Vector2 temp = new Vector2(Camera.main.transform.position.x, Camera.main.transform.position.y);
+       player.rb2D.MovePosition(player.rb2D.position   + velocity * Time.fixedDeltaTime * player.speedMovement);
     }
 }
