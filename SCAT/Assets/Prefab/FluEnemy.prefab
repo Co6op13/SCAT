@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8037559160436660161}
   - component: {fileID: 2744307275892834093}
   - component: {fileID: 6380183899704712764}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FluEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,7 +70,7 @@ MonoBehaviour:
   reloadSpeed: 1
   bulletPrefab: {fileID: 5150079670303691627, guid: afe3938c6e659dd44bcd6ed3b8ea41e6, type: 3}
   firePoint: {fileID: 2087992994543345045}
-  pathEnemy: {fileID: 0}
+  damage: 1
 --- !u!61 &2744307275892834093
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -127,7 +127,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2087992994543345045}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FirePount
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -158,7 +158,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8086664463440268153}
   - component: {fileID: 3660516058270680551}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Isometric Diamond
   m_TagString: Untagged
   m_Icon: {fileID: 0}

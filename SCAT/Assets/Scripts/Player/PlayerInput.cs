@@ -22,5 +22,10 @@ public class PlayerInput : MonoBehaviour
         var x = Input.GetAxisRaw("Horizontal");
         var y = Input.GetAxisRaw("Vertical");
         player.moveDirection = new Vector2(x, y);
+
+        if (Input.GetButtonDown("Fire1") || Input.GetButton("Fire1"))
+            player.isShooting = true;        
+        else
+            player.isShooting = false;
     }
 }

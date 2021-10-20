@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SplineWalker : MonoBehaviour
+public class SplineWalker : MonoBehaviour, iActivation
 {
     [SerializeField] private bool isActiv = false;
     const float normalizedSpeed = 0.01f;
@@ -15,8 +15,9 @@ public class SplineWalker : MonoBehaviour
     private Vector3 position;
 
     public BezierSpline Path {set => path = value; }
-    public bool IsActiv {set => isActiv = value; }
+    
     public float SpeedMovement {set => speedMovement = value; }
+    public bool IsActiv {get => isActiv;}
 
     private void Start()
     {
@@ -72,5 +73,10 @@ public class SplineWalker : MonoBehaviour
     {
         if (isActiv)
         transform.localPosition = position;
+    }
+
+    public void ActivationObject()
+    {
+        isActiv = true;
     }
 }

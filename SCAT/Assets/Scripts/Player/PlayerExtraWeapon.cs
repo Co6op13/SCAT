@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ExtraWeapon : MonoBehaviour
+public class PlayerExtraWeapon : MonoBehaviour
 {
 
     [SerializeField] private Transform topGun;
@@ -28,8 +28,7 @@ public class ExtraWeapon : MonoBehaviour
         {
             MoveGunArround(topGun);
             
-        }
-       // Debug.Log(Time.time);
+        };
     }
 
     void MoveGunArround(Transform gun )
@@ -38,7 +37,6 @@ public class ExtraWeapon : MonoBehaviour
         {
             if (position > 90 || position < -90)
                 SwitchDirection();
-           // Debug.Log(deltaTimeMove);
             deltaTimeMove = Time.time + player.speedMoveExtraGun;
             position = position + step;
             Quaternion topTarget = Quaternion.Euler(0, 0, position);

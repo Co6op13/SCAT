@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnPoint : MonoBehaviour
+public class SpawnPoint : MonoBehaviour, iActivation
 {
     [SerializeField] private bool isActive = false;
     [SerializeField] private GameObject prefabEnemy;
@@ -12,6 +12,9 @@ public class SpawnPoint : MonoBehaviour
     [SerializeField] private float timeDelay;
     
     private bool isWait = false;
+
+    public bool IsActive { get => isActive;}
+
     // Start is called before the first frame update
 
     public void MakeSpawn()
@@ -21,8 +24,8 @@ public class SpawnPoint : MonoBehaviour
         SplineWalker script = enemy.GetComponent<SplineWalker>();
         script.Path = pathForEnemy.GetComponent<BezierSpline>();
         script.SpeedMovement = enemySpeed;
-        script.IsActiv = true;
-        enemy.active = true;
+        script.ActivationObject();
+        enemy.SetActive(true);
     }
 
     private void FixedUpdate()
@@ -39,7 +42,7 @@ public class SpawnPoint : MonoBehaviour
         }
         else
         {
-            gameObject.active = false;
+            gameObject.SetActive(false);
             Debug.Log("I'am " + gameObject.name + "off");
         }
     }
@@ -52,5 +55,10 @@ public class SpawnPoint : MonoBehaviour
     public void Activation()
     {
         isActive = true;
-    }    
+    }
+
+    public void ActivationObject()
+    {
+        isActive = true;
+    }
 }

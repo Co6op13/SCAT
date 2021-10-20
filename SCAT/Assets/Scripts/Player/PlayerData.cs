@@ -10,12 +10,16 @@ public class PlayerData : MonoBehaviour, iHP
     [SerializeField, Range(0.01f,0.1f)] internal float speedMoveExtraGun = 0.05f;
 
     [SerializeField] internal bool isExtraGunLocked = false;
+    
 
     internal HP health;
     internal PlayerInput input;
-    internal Rigidbody2D rigidbody;
-    internal BoxCollider2D collider;
+    internal PlayerExtraWeapon extraWeapon;
+    internal PlayerWeapon weapon;
+    internal Rigidbody2D rb2D;
+    internal BoxCollider2D collider2D;
     internal Vector2 moveDirection;
+    internal bool isShooting = false;
     public bool IsAlive
     {
         get => isAlive;
@@ -37,7 +41,7 @@ public class PlayerData : MonoBehaviour, iHP
     void Start()
     {
         input = GetComponent<PlayerInput>();
-        rigidbody = GetComponent<Rigidbody2D>();
+        rb2D = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
