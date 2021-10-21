@@ -10,17 +10,25 @@ public class SpawnPoint : MonoBehaviour, iActivation
     [SerializeField] private float enemySpeed;
     [SerializeField] private int amountEnemy;
     [SerializeField] private float timeDelay;
+    [SerializeField] private Transform parantObject;
     
     private bool isWait = false;
 
     public bool IsActive { get => isActive;}
 
-    // Start is called before the first frame update
+    private void Start()
+    {
+        parantObject = transform.parent;
+        pathForEnemy = Instantiate(pathForEnemy, transform.position, transform.rotation);
+        pathForEnemy.transform.SetParent(parantObject);
+    }
 
     public void MakeSpawn()
     {
-        pathForEnemy = Instantiate(pathForEnemy, transform.position, transform.rotation);
+        
+       
         GameObject enemy = Instantiate(prefabEnemy, transform.position, transform.rotation);
+        enemy.transform.SetParent(parantObject);
         SplineWalker script = enemy.GetComponent<SplineWalker>();
         script.Path = pathForEnemy.GetComponent<BezierSpline>();
         script.SpeedMovement = enemySpeed;
@@ -52,10 +60,10 @@ public class SpawnPoint : MonoBehaviour, iActivation
         isWait = false;
     }
 
-    public void Activation()
-    {
-        isActive = true;
-    }
+    //public void Activation()
+    //{
+    //    isActive = true;
+    //}
 
     public void ActivationObject()
     {

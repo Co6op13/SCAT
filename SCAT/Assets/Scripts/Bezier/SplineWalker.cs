@@ -11,7 +11,7 @@ public class SplineWalker : MonoBehaviour, iActivation
     [SerializeField] float speedMovement;
     [SerializeField] private bool lookForward;
     [SerializeField] private bool goingForward = true;
-    private float progress;
+    [SerializeField] private float progress;
     private Vector3 position;
 
     public BezierSpline Path {set => path = value; }

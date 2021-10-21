@@ -17,7 +17,7 @@ public class PlayerData : MonoBehaviour, iHP
     internal PlayerExtraWeapon extraWeapon;
     internal PlayerWeapon weapon;
     internal Rigidbody2D rb2D;
-    internal BoxCollider2D collider2D;
+    internal BoxCollider2D _collider2D;
     internal Vector2 moveDirection;
     internal bool isShooting = false;
     public bool IsAlive

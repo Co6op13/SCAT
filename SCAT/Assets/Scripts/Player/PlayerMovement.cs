@@ -5,12 +5,15 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] private Transform mainCamera;
     private PlayerData player; 
+    
 
     private Vector2 velocity;
     // Start is called before the first frame update
     void Start()
     {
+        mainCamera = Camera.main.transform;
         player = GetComponent<PlayerData>();
     }
 
@@ -23,7 +26,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-       //Vector2 temp = new Vector2(Camera.main.transform.position.x, Camera.main.transform.position.y);
-       player.rb2D.MovePosition(player.rb2D.position   + velocity * Time.fixedDeltaTime * player.speedMovement);
+        if (velocity == Vector2.zero)
+        {
+            velocity = mainCamera.position.normalized;
+         //   player.rb2D.MovePosition()
+        }
+        player.rb2D.MovePosition(player.rb2D.position + velocity * Time.fixedDeltaTime * player.speedMovement);
     }
 }
