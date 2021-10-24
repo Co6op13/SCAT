@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour,iProjectile
     [SerializeField] private float lifeTime = 10f;
     [SerializeField] private float speed = 1;
     [SerializeField] private int damage;
-    [SerializeField] private float currentTime;
+    //[SerializeField] private float currentTime;
 
     public float Speed {set => speed = value; }
   

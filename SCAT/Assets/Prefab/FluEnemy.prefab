@@ -9,8 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5101247418339539883}
+  - component: {fileID: 3608244573152825050}
   - component: {fileID: 1905285955874944724}
   - component: {fileID: 8037559160436660161}
+  - component: {fileID: 8855337557868996156}
   - component: {fileID: 2744307275892834093}
   - component: {fileID: 6380183899704712764}
   m_Layer: 7
@@ -36,6 +38,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3608244573152825050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1376435853559745669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5363e0a6b1a02d24682a36957c06c346, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHP: 5
+  speedMovemet: 0
 --- !u!114 &1905285955874944724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51,9 +67,10 @@ MonoBehaviour:
   isActiv: 0
   mode: 0
   path: {fileID: 0}
-  speedMovement: 15
+  speedMovement: 5
   lookForward: 0
   goingForward: 1
+  progress: 0
 --- !u!114 &8037559160436660161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,10 +84,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 1
-  reloadSpeed: 1
+  reloadSpeed: 2
   bulletPrefab: {fileID: 5150079670303691627, guid: afe3938c6e659dd44bcd6ed3b8ea41e6, type: 3}
   firePoint: {fileID: 2087992994543345045}
   damage: 1
+--- !u!114 &8855337557868996156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1376435853559745669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05c46e8ae19f8374f92b6448a15dfff5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHP: 2
+  prefabDie: {fileID: 0}
 --- !u!61 &2744307275892834093
 BoxCollider2D:
   m_ObjectHideFlags: 0

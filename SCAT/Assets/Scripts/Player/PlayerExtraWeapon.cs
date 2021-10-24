@@ -1,15 +1,18 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerExtraWeapon : MonoBehaviour
 {
-
+    [SerializeField] private float reloadSpeed;
     [SerializeField] private Transform topGun;
+    [SerializeField] private Transform topFirePoint;
     [SerializeField] private Transform bottomGun;
-
+    [SerializeField] private Transform bootomFirePoint;
+    [SerializeField] private GameObject bulletPrefab;    
     [SerializeField, Range(-20, 20)] private int step = 1;
-
+    private bool isReloading = false;
     private float deltaTimeMove;
     //private bool isMovePositive = true;
     private int position = 0;
@@ -21,13 +24,38 @@ public class PlayerExtraWeapon : MonoBehaviour
         deltaTimeMove = Time.time;
     }
 
+    private void Update()
+    {
+        if (player.isShooting)
+        {
+            MakeShoot();
+        }
+    }
+
+    private void MakeShoot()
+    {
+        if (!isReloading)
+        {
+            isReloading = true;
+            StartCoroutine(Reload());
+
+            Instantiate(bulletPrefab, topFirePoint.position, topFirePoint.rotation);
+            Instantiate(bulletPrefab, bootomFirePoint.position, bootomFirePoint.rotation);
+        }
+    }
+
+    IEnumerator Reload()
+    {
+        yield return new WaitForSeconds(reloadSpeed);
+        isReloading = false;
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
         if (player.isExtraGunLocked) 
         {
-            MoveGunArround(topGun);
-            
+            MoveGunArround(topGun);            
         };
     }
 

@@ -5,11 +5,12 @@ public class HP : MonoBehaviour
 {
     private iHP livingObject;
     [SerializeField] internal int currentHP;
-
+    [SerializeField] private GameObject prefabDie;
+ 
     private void Start()
     {
-        livingObject = GetComponent<iHP>();
-        currentHP = livingObject.GetMaxHP();
+            livingObject = GetComponent<iHP>();
+            currentHP = livingObject.GetMaxHP();
     }
 
     public void GetDamage(int damage)
@@ -17,6 +18,18 @@ public class HP : MonoBehaviour
         if (currentHP - damage >= 0)
         {
             currentHP -= damage;
+        }
+        else
+        {
+            try
+            {
+                Instantiate(prefabDie, transform.position, transform.rotation);
+            }
+            catch
+            {
+                Debug.Log(gameObject.name + " prefab Die is empty");
+            }
+            Destroy(gameObject);
         }
     }
 

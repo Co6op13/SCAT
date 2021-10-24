@@ -67,6 +67,18 @@ public class SpawnPoint : MonoBehaviour, iActivation
 
     public void ActivationObject()
     {
+        Debug.Log(gameObject.name + " activation");
         isActive = true;
     }
+
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    Debug.Log("11Try activation from triget" + collision.gameObject.name);
+    //}
+
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    Debug.Log("11Try activation from collision " + collision.gameObject.name);
+       
+    //}
 }
