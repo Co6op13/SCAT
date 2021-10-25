@@ -17,7 +17,7 @@ public class PlayerBasicWeapon : MonoBehaviour , iPlayerWeapon
     // Update is called once per frame
     public void MakeShot()
     {
-        Debug.Log("try Shooting");
+        //Debug.Log("try Shooting");
         if (!isReloading)
         {
             isReloading = true;
