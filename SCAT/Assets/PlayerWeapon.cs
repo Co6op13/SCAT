@@ -36,7 +36,7 @@ public class PlayerWeapon : MonoBehaviour
         {
             Debug.Log("current weapon is empty");
         }
-        Debug.Log(weapon);
+        //Debug.Log(weapon);
         weaponCurrent = weapons[(int)weapon];
         weaponCurrent.SetActive(true);
         weaponScript = weaponCurrent.GetComponent<iPlayerWeapon>();
