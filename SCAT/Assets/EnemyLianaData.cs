@@ -21,6 +21,7 @@ public class EnemyLianaData : MonoBehaviour,iHP
     private float direxctionY; // if player to the apper 1 else +1
     private void Start()
     {
+        
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
         playersTransform = new Transform[players.Length];
         for (int i = 0; i < players.Length; i++)
