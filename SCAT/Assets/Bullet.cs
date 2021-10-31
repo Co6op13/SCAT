@@ -21,7 +21,7 @@ public class Bullet : MonoBehaviour,iProjectile
         transform.Translate( Vector3.right * speed * Time.deltaTime);
         if (Time.time > lifeTime)
         {
-            Debug.Log("destroy");
+           // Debug.Log("destroy");
             Destroy(gameObject);
         }
     }
