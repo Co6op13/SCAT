@@ -25,8 +25,6 @@ public class SpawnPoint : MonoBehaviour, iActivation
 
     public void MakeSpawn()
     {
-        
-       
         GameObject enemy = Instantiate(prefabEnemy, transform.position, transform.rotation);
         enemy.transform.SetParent(parantObject);
         SplineWalker script = enemy.GetComponent<SplineWalker>();
@@ -60,25 +58,10 @@ public class SpawnPoint : MonoBehaviour, iActivation
         isWait = false;
     }
 
-    //public void Activation()
-    //{
-    //    isActive = true;
-    //}
-
     public void ActivationObject()
     {
         Debug.Log(gameObject.name + " activation");
         isActive = true;
     }
 
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    Debug.Log("11Try activation from triget" + collision.gameObject.name);
-    //}
-
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    Debug.Log("11Try activation from collision " + collision.gameObject.name);
-       
-    //}
 }

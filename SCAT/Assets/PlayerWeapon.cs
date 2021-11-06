@@ -11,10 +11,15 @@ public class PlayerWeapon : MonoBehaviour
     [SerializeField] private GameObject[] weapons;
     
     private PlayerData player;
-   
-    private void Start()
+    private void Awake()
     {
         player = GetComponent<PlayerData>();
+    }
+
+
+    private void Start()
+    {
+      
         SetWeaponType(currentWeaposType);
     }
 

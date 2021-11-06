@@ -18,9 +18,13 @@ public class PlayerExtraWeapon : MonoBehaviour
     private int position = 0;
     private PlayerData player;
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         player = transform.GetComponent<PlayerData>();
+    }
+    void Start()
+    {
+        
         deltaTimeMove = Time.time;
     }
 

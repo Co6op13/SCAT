@@ -18,8 +18,7 @@ public class MoveLavel : MonoBehaviour
     }
 
     void FixedUpdate()
-    {
-        //Debug.Log(Vector3.Distance(pointOfChancheDirection[currentPoint].position *  - 1, pointCheck.position));
+    {    
         if (Vector3.Distance(pointOfChancheDirection[currentPoint].position * -1, pointCheck.position) > 0.1f)
         {          
             movingObjects.position = Vector2.MoveTowards(movingObjects.position, 

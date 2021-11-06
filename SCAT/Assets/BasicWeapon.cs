@@ -10,10 +10,9 @@ public class BasicWeapon : MonoBehaviour
     [SerializeField] private Transform firePoint;
     [SerializeField] private int damage;
     private bool isReloading = false;
-
     public int Damage { set => damage = value; }
 
-    // Update is called once per frame
+    
     public void MakeShot()
     {
         var bullet =  Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);

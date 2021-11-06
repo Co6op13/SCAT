@@ -6,10 +6,14 @@ public class HP : MonoBehaviour
     private iHP livingObject;
     [SerializeField] internal int currentHP;
     [SerializeField] private GameObject prefabDie;
- 
+
+    private void Awake()
+    {
+        livingObject = GetComponent<iHP>();
+    }
     private void Start()
     {
-            livingObject = GetComponent<iHP>();
+           
             currentHP = livingObject.GetMaxHP();
     }
 

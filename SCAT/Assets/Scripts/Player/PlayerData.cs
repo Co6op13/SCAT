@@ -32,13 +32,10 @@ public class PlayerData : MonoBehaviour, iHP
         }
     }
 
-    public int GetMaxHP()
-    {
-        return maxHP;
-    }
+    
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         input = GetComponent<PlayerInput>();
         rb2D = GetComponent<Rigidbody2D>();
@@ -48,5 +45,9 @@ public class PlayerData : MonoBehaviour, iHP
     void Update()
     {
         
+    }
+    public int GetMaxHP()
+    {
+        return maxHP;
     }
 }

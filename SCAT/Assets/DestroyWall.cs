@@ -10,11 +10,7 @@ public class DestroyWall : MonoBehaviour
     {
         transform.localScale = localScale;
     }
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    Debug.Log("trigetr");
-    //    Destroy(collision);
-    //}
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("coll");

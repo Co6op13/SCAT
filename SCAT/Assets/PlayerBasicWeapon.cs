@@ -8,23 +8,15 @@ public class PlayerBasicWeapon : MonoBehaviour , iPlayerWeapon
     [SerializeField] private float reloadSpeed;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firePoint;
-
-    //[SerializeField] private int damage;
     [SerializeField] private bool isReloading = false;
 
-    //public int Damage { set => damage = value; }
-
-    // Update is called once per frame
     public void MakeShot()
-    {
-        //Debug.Log("try Shooting");
+    {        
         if (!isReloading)
         {
             isReloading = true;
             StartCoroutine(Reload());
-            //var bullet =
-            Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-            //bullet.GetComponent<iProjectile>().SetDamage(damage);
+            Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);            
         }
     }
 

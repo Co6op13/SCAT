@@ -7,15 +7,17 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private Transform mainCamera;
     private PlayerData player; 
-    
-
     private Vector2 velocity;
-    // Start is called before the first frame update
+    
+    private void Awake()
+    {
+        player = GetComponent<PlayerData>();
+    }
     void Start()
     {
 
         mainCamera = Camera.main.transform;
-        player = GetComponent<PlayerData>();
+        
     }
 
     // Update is called once per frame

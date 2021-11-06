@@ -15,8 +15,7 @@ public class MoveCamera : MonoBehaviour
     }
 
     void FixedUpdate()
-    {
-        //Debug.Log(Vector3.Distance(pointOfChancheDirection[currentPoint].position *  - 1, pointCheck.position));
+    {        
         if (Vector3.Distance(movingObjects.position, pointOfChancheDirection[currentPoint].position) > 0.1f)
         {
             movingObjects.position = Vector3.MoveTowards(movingObjects.position,

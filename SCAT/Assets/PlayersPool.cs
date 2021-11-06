@@ -5,10 +5,10 @@ using UnityEngine;
 public class PlayersPool : MonoBehaviour
 {
     [SerializeField] private Transform[] playersTransform;
-
-    private void Start()
+    private GameObject[] players;
+    private void Awake()
     {
-        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        players = GameObject.FindGameObjectsWithTag("Player");
         playersTransform = new Transform[players.Length];
         for (int i = 0; i < players.Length; i++)
         {

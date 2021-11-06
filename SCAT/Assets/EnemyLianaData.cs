@@ -19,10 +19,14 @@ public class EnemyLianaData : MonoBehaviour,iHP
     private Vector3[] segmentVelocity;
     private float direxctionX; // if player to the left -1 else +1
     private float direxctionY; // if player to the apper 1 else +1
+    private GameObject[] players;
+
+    private void Awake()
+    {
+        players  = GameObject.FindGameObjectsWithTag("Player");
+    }
     private void Start()
     {
-        
-        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
         playersTransform = new Transform[players.Length];
         for (int i = 0; i < players.Length; i++)
         {
