@@ -13,7 +13,7 @@ public class TurretData : MonoBehaviour, iHP
     [SerializeField] internal Transform target;
     [SerializeField] private float timeBetweenSearch = 0.5f;
     [SerializeField] private Transform pivotWeapon;
-    internal CompositeCollider2D collider2d;
+   // internal CompositeCollider2D collider2d;
     [SerializeField] private PlayersPool playersPool;
     private float time;
     [SerializeField] private float maxDirectionAngle;
