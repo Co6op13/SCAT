@@ -9,30 +9,16 @@ public class EnemyLianaData : MonoBehaviour,iHP
     [SerializeField] internal float lianaLength;
     [SerializeField] internal float speedMovemeth;
     [SerializeField] internal Transform[] playersTransform;
-    [SerializeField, Range( 1, 5)] private float offset;
+    [SerializeField] private PlayersPool playersPool;
 
     [Space(5)]
     private Vector3 targetDirection;
     private float targetDirectionAngle;
     private Vector3 movePosition;
-    private Vector3 target = Vector3.zero;
-    private Vector3[] segmentVelocity;
+    private Vector3 targetPosition = Vector3.zero;
+    [SerializeField] internal Transform target;
     private float direxctionX; // if player to the left -1 else +1
-    private float direxctionY; // if player to the apper 1 else +1
-    private GameObject[] players;
-
-    private void Awake()
-    {
-        players  = GameObject.FindGameObjectsWithTag("Player");
-    }
-    private void Start()
-    {
-        playersTransform = new Transform[players.Length];
-        for (int i = 0; i < players.Length; i++)
-        {
-            playersTransform[i] = players[i].transform;
-        }
-    }
+   
 
     public int GetMaxHP()
     {
@@ -42,29 +28,11 @@ public class EnemyLianaData : MonoBehaviour,iHP
 
     private void FixedUpdate()
     {
-        Transform nearestTarget = GetNearestTarger();
+        Transform nearestTarget = playersPool.GetNearestTarger(transform.position);
         targetDirection = (nearestTarget.position - transform.position).normalized;
         targetDirectionAngle = GetAngleFromVectorFloat(targetDirection);
         movePosition = GetMovePostiion(targetDirection, nearestTarget.position);
         MoveHead( movePosition, targetDirectionAngle);
-    }
-
-    private Transform GetNearestTarger()
-    {
-        int nearest = 0;
-        if (playersTransform.Length == 1)
-            return playersTransform[nearest];
-        float distance = 999f;
-        
-        for ( int i = 0; i < playersTransform.Length; i++ )
-        {
-            if (distance > Vector2.Distance(playersTransform[i].position,transform.position))
-            {
-                distance = Vector2.Distance(playersTransform[i].position, transform.position);
-                nearest = i;
-            }
-        }
-        return  playersTransform[nearest];
     }
 
     private Vector3 GetMovePostiion( Vector3 directionToTarget ,  Vector3 playerPosition)
@@ -82,14 +50,14 @@ public class EnemyLianaData : MonoBehaviour,iHP
 
         float catetB = Mathf.Sqrt(lianaLength * lianaLength - catetA * catetA);
 
-        target = new Vector3((catetB * direxctionX), catetA, 0f);
+        targetPosition = new Vector3((catetB * direxctionX), catetA, 0f);
 
         if (transform.position.y - lianaLength + 1 > playerPosition.y)
-            target = new Vector3(target.x, target.y * -1, 0f);
+            targetPosition = new Vector3(targetPosition.x, targetPosition.y * -1, 0f);
 
-        Debug.DrawLine(transform.position, target + transform.position, Color.yellow);
+        Debug.DrawLine(transform.position, targetPosition + transform.position, Color.yellow);
 
-        return (target + transform.position);
+        return (targetPosition + transform.position);
         
     }
     private void MoveHead(Vector3 moveDirection, float directionAngle)
@@ -100,12 +68,12 @@ public class EnemyLianaData : MonoBehaviour,iHP
     }
 
    
-    public static Vector3 GetVectorFromAngle(int angle)
-    {
-        // angle = 0 -> 360
-        float angleRad = angle * (Mathf.PI / 180f);
-        return new Vector3(Mathf.Cos(angleRad), Mathf.Sin(angleRad));
-    }
+    //public static Vector3 GetVectorFromAngle(int angle)
+    //{
+    //    // angle = 0 -> 360
+    //    float angleRad = angle * (Mathf.PI / 180f);
+    //    return new Vector3(Mathf.Cos(angleRad), Mathf.Sin(angleRad));
+    //}
 
     public static float GetAngleFromVectorFloat(Vector3 direction)
     {

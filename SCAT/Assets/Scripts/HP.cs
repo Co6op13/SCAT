@@ -3,37 +3,56 @@ using System.Collections;
 
 public class HP : MonoBehaviour
 {
-    private iHP livingObject;
     [SerializeField] internal int currentHP;
     [SerializeField] private GameObject prefabDie;
+   // [SerializeField] private bool isNeedParentObject = false;
+    [SerializeField] private GameObject parentObject;  // if need
+    [SerializeField] private HP parentHP;
+    [SerializeField] private bool isChildrenObject = false;
+    private iHP livingObject;
 
     private void Awake()
     {
-        livingObject = GetComponent<iHP>();
+        if (GetComponent<iHP>() != null)
+        {
+            Debug.Log("test1");
+            livingObject = GetComponent<iHP>();
+        }
+        else 
+        {
+            livingObject = parentObject.GetComponent<iHP>();
+        }
     }
     private void Start()
     {
-           
-            currentHP = livingObject.GetMaxHP();
+        currentHP = livingObject.GetMaxHP();
     }
 
     public void GetDamage(int damage)
     {
-        if (currentHP - damage >= 0)
+        if (isChildrenObject == true)
         {
-            currentHP -= damage;
+            parentHP.GetDamage(damage);
+            return;
         }
         else
         {
-            try
+            if (currentHP - damage >= 0)
             {
-                Instantiate(prefabDie, transform.position, transform.rotation);
+                currentHP -= damage;
             }
-            catch
+            else
             {
-                Debug.Log(gameObject.name + " prefab Die is empty");
+                try
+                {
+                    Instantiate(prefabDie, transform.position, transform.rotation);
+                }
+                catch
+                {
+                    Debug.Log(gameObject.name + " prefab Die is empty");
+                }
+                Destroy(gameObject);
             }
-            Destroy(gameObject);
         }
     }
 

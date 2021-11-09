@@ -8,9 +8,8 @@ public class PlayerData : MonoBehaviour, iHP
     [SerializeField] internal float speedMovement;
     [SerializeField] internal int maxHP;
     [SerializeField, Range(0.01f,0.1f)] internal float speedMoveExtraGun = 0.05f;
-
     [SerializeField] internal bool isExtraGunLocked = false;
-    
+    [SerializeField] private PlayersPool playersPool;
 
     internal HP health;
     internal PlayerInput input;
@@ -32,14 +31,21 @@ public class PlayerData : MonoBehaviour, iHP
         }
     }
 
-    
+    void OnDestroy()
+    {
+        playersPool.DeletePlayer(transform);
+    }
+
 
     // Start is called before the first frame update
     void Awake()
     {
+        playersPool.AddPlayer(transform);
         input = GetComponent<PlayerInput>();
         rb2D = GetComponent<Rigidbody2D>();
     }
+
+    
 
     // Update is called once per frame
     void Update()
@@ -50,4 +56,5 @@ public class PlayerData : MonoBehaviour, iHP
     {
         return maxHP;
     }
+    
 }

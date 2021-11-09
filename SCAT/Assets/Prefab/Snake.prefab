@@ -500,9 +500,9 @@ GameObject:
   - component: {fileID: 4221527055775658628}
   - component: {fileID: 4221527055775658631}
   - component: {fileID: 3357690349050431780}
+  - component: {fileID: 6623650845859051571}
   - component: {fileID: 4221527055775658648}
   - component: {fileID: 4221527055775658630}
-  - component: {fileID: 305875581}
   m_Layer: 7
   m_Name: Snake
   m_TagString: Untagged
@@ -561,8 +561,8 @@ MonoBehaviour:
   - {fileID: 4221527055746681853}
   - {fileID: 4221527056015550603}
   target: {fileID: 4221527055775658629}
-  maxHP: 0
-  smoothSpeed: 7
+  maxHP: 5
+  smoothSpeed: 9
 --- !u!114 &4221527055775658631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -578,7 +578,7 @@ MonoBehaviour:
   isActiv: 1
   mode: 0
   path: {fileID: 7133536584000964757, guid: 03639004e8c237b4c854f5db7eff91cb, type: 3}
-  speedMovement: 8
+  speedMovement: 10
   lookForward: 0
   goingForward: 1
   progress: 0
@@ -594,11 +594,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1061c5cead2dbfb42a8e451ac7efe3fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isActive: 0
+  isActive: 1
   reloadSpeed: 1
   bulletPrefab: {fileID: 5150079670303691627, guid: afe3938c6e659dd44bcd6ed3b8ea41e6, type: 3}
   firePoint: {fileID: 3720284989723058342}
   damage: 1
+--- !u!114 &6623650845859051571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4221527055775658649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05c46e8ae19f8374f92b6448a15dfff5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHP: 0
+  prefabDie: {fileID: 0}
+  parentObject: {fileID: 0}
 --- !u!50 &4221527055775658648
 Rigidbody2D:
   serializedVersion: 4
@@ -646,23 +661,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &305875581
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4221527055775658649}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1061c5cead2dbfb42a8e451ac7efe3fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isActive: 0
-  reloadSpeed: 0
-  bulletPrefab: {fileID: 0}
-  firePoint: {fileID: 0}
-  damage: 0
 --- !u!1 &4221527055848063277
 GameObject:
   m_ObjectHideFlags: 0

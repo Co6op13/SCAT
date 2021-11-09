@@ -20,6 +20,10 @@ public class TurretData : MonoBehaviour, iHP
     [SerializeField] private float minDirectionAngle;
     [SerializeField] private float targetDirectionAngle = 90;
 
+    private void Awake()
+    {
+        playersPool = FindObjectOfType<PlayersPool>();
+    }
 
 
     private void Start()
@@ -28,19 +32,20 @@ public class TurretData : MonoBehaviour, iHP
         target = playersPool.GetNearestTarger(transform.position);       
         maxDirectionAngle = GetRangePositionWeapon(maxAngleWeapon);
         minDirectionAngle = GetRangePositionWeapon(minAngleWeapon);
-       // Debug.Log(Quaternion.Euler(0f,0f, maxDirectionAngle));
+       
     }
 
     private  float GetRangePositionWeapon(float dir)
     {
         float newAngle = transform.eulerAngles.z + dir;
-        //if (newAngle >= 360)
-        //    newAngle -= 360;
+        if (newAngle >= 360)
+            newAngle -= 360;
         return newAngle;
     }
 
-private void FixedUpdate()
+    private void FixedUpdate()
     {
+        
         if (time < Time.time)
         {           
             if (target == null)
@@ -60,27 +65,41 @@ private void FixedUpdate()
        
         Vector3 direction = (target.position - transform.position).normalized;
         float directionAngle = GetAngleFromVectorFloat(direction);
-        float tempMax = maxDirectionAngle;
-        float tempMin = minDirectionAngle;
 
-       
+
+
         //Debug.Log(pivotWeapon.eulerAngles.z);
+        if (maxDirectionAngle < minDirectionAngle)
+        {
+            if (directionAngle < minDirectionAngle & directionAngle > 180f)
+            {
+                return minDirectionAngle;
+            }
+            else if (directionAngle > maxDirectionAngle & directionAngle < 180)
+            {
+                return maxDirectionAngle;
+            }
+            else
+                return directionAngle;
+        }
+        else
+        {
 
-        //if (directionAngle < maxDirectionAngle & directionAngle > minDirectionAngle)
-        //    return directionAngle;
-        //else
-        //{
-        //    if (directionAngle < minDirectionAngle)
-        //    {
-        //        return minDirectionAngle;
-        //    }
-        //    else if (directionAngle > maxDirectionAngle)
-        //    {
-        //        return maxDirectionAngle;
-        //    }
-        //}
-        return (directionAngle);
-        
+            if (directionAngle < maxDirectionAngle & directionAngle > minDirectionAngle)
+                return directionAngle;
+            else
+            {
+                if (directionAngle < minDirectionAngle)
+                {
+                    return minDirectionAngle;
+                }
+                else if (directionAngle > maxDirectionAngle)
+                {
+                    return maxDirectionAngle;
+                }
+            }
+        }
+        return (0);        
     }
 
     void MoveWeapon( float directionAngle)
