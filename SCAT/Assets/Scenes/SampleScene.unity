@@ -154,9 +154,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isActive: 1
   damage: 0
-  reloadSpeed: 2
+  reloadSpeed: 0
   isReload: 1
-  biasLaunchRocket: 1
+  delayLaunchRocket: 0.3
   firePoints:
   - {fileID: 1618257659}
   - {fileID: 438325443}
