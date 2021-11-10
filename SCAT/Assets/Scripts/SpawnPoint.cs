@@ -49,7 +49,7 @@ public class SpawnPoint : MonoBehaviour, iActivation
         else
         {
             gameObject.SetActive(false);
-            Debug.Log("I'am " + gameObject.name + "off");
+          //  Debug.Log("I'am " + gameObject.name + "off");
         }
     }
     IEnumerator WaitDelay()
@@ -60,7 +60,7 @@ public class SpawnPoint : MonoBehaviour, iActivation
 
     public void ActivationObject()
     {
-        Debug.Log(gameObject.name + " activation");
+       // Debug.Log(gameObject.name + " activation");
         isActive = true;
     }
 

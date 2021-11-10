@@ -19,14 +19,16 @@ public class MoveLavel : MonoBehaviour
 
     void FixedUpdate()
     {    
-        if (Vector3.Distance(pointOfChancheDirection[currentPoint].position * -1, pointCheck.position) > 0.1f)
-        {          
+        if (Vector3.Distance(pointOfChancheDirection[currentPoint].position * -1, pointCheck.position) > 0.3f)
+        {
+            Debug.Log("test1");
             movingObjects.position = Vector2.MoveTowards(movingObjects.position, 
                 pointOfChancheDirection[currentPoint].localPosition * -1,
                 speed * Time.fixedDeltaTime);
         }
         else
-        {           
+        {
+            Debug.Log("test2");
             if (currentPoint + 1 < pointOfChancheDirection.Length)
                 currentPoint++;
         }

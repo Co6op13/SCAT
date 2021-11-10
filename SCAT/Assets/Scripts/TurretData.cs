@@ -5,17 +5,19 @@ using System;
 
 public class TurretData : MonoBehaviour, iHP
 {
-    //[SerializeField] private bool isActive;
+    [SerializeField] private bool isActive;
     [SerializeField, Range(0, 359)] private float maxAngleWeapon;
     [SerializeField, Range(0, 359)] private float minAngleWeapon;
     [SerializeField] private float speedRotate;
     [SerializeField] internal int maxHP;
     [SerializeField] internal Transform target;
-    [SerializeField] private float timeBetweenSearch = 0.5f;
+    [SerializeField] private float timeBetweenSearch = 1f;
+    [SerializeField] private float timeBetweenMoveWeapon = 0.3f;
     [SerializeField] private Transform pivotWeapon;
    // internal CompositeCollider2D collider2d;
     [SerializeField] private PlayersPool playersPool;
-    private float time;
+    private float timeMove;
+    private float timeSearch;
     [SerializeField] private float maxDirectionAngle;
     [SerializeField] private float minDirectionAngle;
     [SerializeField] private float targetDirectionAngle = 90;
@@ -28,7 +30,7 @@ public class TurretData : MonoBehaviour, iHP
 
     private void Start()
     {
-        time = Time.time + 1f;
+        timeMove = Time.time + timeMove;
         target = playersPool.GetNearestTarger(transform.position);       
         maxDirectionAngle = GetRangePositionWeapon(maxAngleWeapon);
         minDirectionAngle = GetRangePositionWeapon(minAngleWeapon);
@@ -46,14 +48,24 @@ public class TurretData : MonoBehaviour, iHP
     private void FixedUpdate()
     {
         
-        if (time < Time.time)
-        {           
-            if (target == null)
+        if (timeMove < Time.time)
+        {
+            if (timeSearch < Time.time || target == null)
             {
-                target = playersPool.GetNearestTarger(transform.position);
-            }
-            time = Time.time + timeBetweenSearch;
-            targetDirectionAngle = GetDirection(target);
+                try
+                {
+                    target = playersPool.GetNearestTarger(transform.position);
+                }
+                catch
+                {
+                    Debug.Log("There is no live player or somthing wrong");
+                }
+
+                timeSearch = Time.time + timeSearch;
+            }            
+            timeMove = Time.time + timeBetweenMoveWeapon;
+            if (target != null)
+                targetDirectionAngle = GetDirection(target);
         }
 
         

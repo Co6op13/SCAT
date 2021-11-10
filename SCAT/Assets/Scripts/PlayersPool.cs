@@ -31,7 +31,7 @@ public class PlayersPool : MonoBehaviour
         if (playersTransform.Count == 1)
             return playersTransform[nearest];
         float distance = 999f;
-
+        
         for (int i = 0; i < playersTransform.Count; i++)
         {
             if (distance > Vector2.Distance(playersTransform[i].position, selfPosition))

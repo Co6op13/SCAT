@@ -15,7 +15,7 @@ public class HP : MonoBehaviour
     {
         if (GetComponent<iHP>() != null)
         {
-            Debug.Log("test1");
+           // Debug.Log("test1");
             livingObject = GetComponent<iHP>();
         }
         else 

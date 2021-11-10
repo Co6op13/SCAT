@@ -215,14 +215,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 725e17c8f5690074c994b271be59b5e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isActive: 0
   maxAngleWeapon: 130
   minAngleWeapon: 50
   speedRotate: 5
   maxHP: 5
   target: {fileID: 0}
   timeBetweenSearch: 1
+  timeBetweenMoveWeapon: 0.3
   pivotWeapon: {fileID: 8115679032057494594}
-  playersPool: {fileID: 1197994510981430347, guid: ade3e64c1ac0ee243a7c2a912651b3b3, type: 3}
+  playersPool: {fileID: 0}
   maxDirectionAngle: 130
   minDirectionAngle: 50
   targetDirectionAngle: 90
@@ -242,7 +244,7 @@ MonoBehaviour:
   reloadSpeed: 1
   bulletPrefab: {fileID: 7500724719640989845, guid: 853f79eb9a9f19c4e8edd12fcc3bfe19, type: 3}
   firePoint: {fileID: 8115679032187957912}
-  damage: 0
+  damage: 5
 --- !u!114 &8477692544330125077
 MonoBehaviour:
   m_ObjectHideFlags: 0
