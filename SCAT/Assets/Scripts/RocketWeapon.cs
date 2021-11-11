@@ -15,22 +15,40 @@ public class RocketWeapon : BasicWeapon
     {
         if (isActive && isReload)
         {
-            if (isDelayEnd)
-                LaunchRocket();
+            isReload = false;
+            StartCoroutine(LR());
+            
+            //StopCoroutine(Reload());
         }
+        //if (isActive && isReload)
+        //{
+        //    if (isDelayEnd)
+        //        LaunchRocket();
+        //}
     }
 
-    void LaunchRocket()
+    //void LaunchRocket()
+    //{
+    //    isDelayEnd = false;
+    //    MakeShot(bulletPrefab, firePoints[currentFirePoint].position, firePoints[currentFirePoint].rotation);
+    //    StartCoroutine(Reload(delayLaunchRocket, (callback) => isDelayEnd = callback));
+    //    currentFirePoint++;
+    //    if (currentFirePoint == firePoints.Length)
+    //    {
+    //        isReload = false;
+    //        currentFirePoint = 0;
+    //        StartCoroutine(Reload(reloadSpeed, (callback) => isReload = callback));
+    //    }
+    //}
+
+    private IEnumerator LR()
     {
-        isDelayEnd = false;
-        MakeShot(bulletPrefab, firePoints[currentFirePoint].position, firePoints[currentFirePoint].rotation);
-        StartCoroutine(Reload(delayLaunchRocket, (callback) => isDelayEnd = callback));
-        currentFirePoint++;
-        if (currentFirePoint == firePoints.Length)
+        foreach (var firePoint in firePoints)
         {
-            isReload = false;
-            currentFirePoint = 0;
-            StartCoroutine(Reload(reloadSpeed, (callback) => isReload = callback));
+            MakeShot(bulletPrefab, firePoint.position, firePoint.rotation);
+            yield return new WaitForSeconds(delayLaunchRocket);
         }
+        StartCoroutine(Reload(reloadSpeed, (callback) => isReload = callback));
+        yield break;
     }
 }
