@@ -5,7 +5,6 @@ public class HP : MonoBehaviour
 {
     [SerializeField] internal int currentHP;
     [SerializeField] private GameObject prefabDie;
-   // [SerializeField] private bool isNeedParentObject = false;
     [SerializeField] private GameObject parentObject;  // if need
     [SerializeField] private HP parentHP;
     [SerializeField] private bool isChildrenObject = false;
@@ -15,7 +14,6 @@ public class HP : MonoBehaviour
     {
         if (GetComponent<iHP>() != null)
         {
-           // Debug.Log("test1");
             livingObject = GetComponent<iHP>();
         }
         else 

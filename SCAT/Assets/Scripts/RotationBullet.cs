@@ -8,11 +8,13 @@ public class RotationBullet : MonoBehaviour
     private float nextAngle;
     void Start()
     {
+        
         nextAngle = 45;
     }
 
     void FixedUpdate()
     {
+        Debug.Log("гюашк дкъ вецн охяюк щрнр яйпхор. нм мюундхряъ мю " + gameObject.name);
         Debug.Log(transform.eulerAngles.z + "   " + nextAngle);
         if (transform.eulerAngles.z == nextAngle )
         {

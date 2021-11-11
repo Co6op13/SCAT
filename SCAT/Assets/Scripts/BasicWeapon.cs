@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasicWeapon : MonoBehaviour
+public abstract class BasicWeapon : MonoBehaviour
 {
     [SerializeField] protected bool isActive;
     [SerializeField] protected int damage;
@@ -13,7 +13,7 @@ public class BasicWeapon : MonoBehaviour
 
     protected void MakeShot(GameObject prefab, Vector3 firePoint, Quaternion quaternion)
     {
-        var bullet = Instantiate(prefab, firePoint, quaternion);
+        var bullet = Instantiate(prefab, firePoint, quaternion) as GameObject;
         bullet.GetComponent<iProjectile>().SetDamage(damage);
     }
 

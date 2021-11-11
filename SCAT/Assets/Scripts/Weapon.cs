@@ -18,9 +18,5 @@ public class Weapon : BasicWeapon
             //StopCoroutine(Reload());
         }
 
-        
-
-
-
     }
 }

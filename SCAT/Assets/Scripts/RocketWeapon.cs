@@ -15,29 +15,22 @@ public class RocketWeapon : BasicWeapon
     {
         if (isActive && isReload)
         {
-            isReload = false;
-
-            LaunchRocket();
-
-            StartCoroutine(Reload(reloadSpeed, (callback) => isReload = callback));
+            if (isDelayEnd)
+                LaunchRocket();
         }
-
     }
 
     void LaunchRocket()
     {
-        if (currentFirePoint < firePoints.Length && isDelayEnd)
+        isDelayEnd = false;
+        MakeShot(bulletPrefab, firePoints[currentFirePoint].position, firePoints[currentFirePoint].rotation);
+        StartCoroutine(Reload(delayLaunchRocket, (callback) => isDelayEnd = callback));
+        currentFirePoint++;
+        if (currentFirePoint == firePoints.Length)
         {
-            isDelayEnd = false;
-            MakeShot(bulletPrefab, firePoints[currentFirePoint].position, 
-                firePoints[currentFirePoint].rotation);            
-            StartCoroutine(Reload(delayLaunchRocket, (callback) => isDelayEnd = callback));
-            currentFirePoint++;
-        }
-        else
+            isReload = false;
             currentFirePoint = 0;
-
-
+            StartCoroutine(Reload(reloadSpeed, (callback) => isReload = callback));
+        }
     }
-
 }
