@@ -9,7 +9,7 @@ public class PlayerData : MonoBehaviour, iHP
     [SerializeField] internal int maxHP;
     [SerializeField, Range(0.01f,0.1f)] internal float speedMoveExtraGun = 0.05f;
     [SerializeField] internal bool isExtraGunLocked = false;
-    [SerializeField] private PlayersPool playersPool;
+    [SerializeField] private GameManager playersPool;
 
     internal HP health;
     internal PlayerInput input;

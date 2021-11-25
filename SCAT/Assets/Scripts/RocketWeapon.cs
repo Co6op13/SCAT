@@ -16,7 +16,7 @@ public class RocketWeapon : BasicWeapon
         if (isActive && isReload)
         {
             isReload = false;
-            StartCoroutine(LR());
+            StartCoroutine(LaunchRocket());
             
             //StopCoroutine(Reload());
         }
@@ -41,7 +41,7 @@ public class RocketWeapon : BasicWeapon
     //    }
     //}
 
-    private IEnumerator LR()
+    private IEnumerator LaunchRocket()
     {
         foreach (var firePoint in firePoints)
         {

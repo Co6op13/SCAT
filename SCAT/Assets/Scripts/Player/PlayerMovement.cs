@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private Transform mainCamera;
+   // [SerializeField] private Transform mainCamera;
     private PlayerData player; 
     private Vector2 velocity;
     
@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
 
-        mainCamera = Camera.main.transform;
+      //  mainCamera = Camera.main.transform;
         
     }
 

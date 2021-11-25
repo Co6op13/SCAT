@@ -11,7 +11,7 @@ namespace Scripts
         [SerializeField] internal float lianaLength;
         [SerializeField] internal float speedMovemeth;
         [SerializeField] internal Transform[] playersTransform;
-        [SerializeField] private PlayersPool playersPool;
+        [SerializeField] private GameManager playersPool;
 
         [Space(5)]
         private Vector3 targetDirection;

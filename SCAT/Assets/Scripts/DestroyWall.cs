@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[ExecuteAlways]
 public class DestroyWall : MonoBehaviour
 {
     [SerializeField] private Vector3 localScale;
@@ -11,8 +12,9 @@ public class DestroyWall : MonoBehaviour
         transform.localScale = localScale;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {        
         Debug.Log("coll");
         Destroy(collision.gameObject);
     }
@@ -20,7 +22,7 @@ public class DestroyWall : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawCube(transform.position, localScale);
+        Gizmos.DrawWireCube(transform.position, localScale);
     }
 
 }

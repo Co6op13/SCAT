@@ -8,11 +8,11 @@ namespace Scripts
     {
         [SerializeField] private float speedRotation;
         [SerializeField]private float delayFly = 1;
-        [SerializeField] private PlayersPool playersPool;
+        [SerializeField] private GameManager playersPool;
 
         private void Awake()
         {
-            playersPool = FindObjectOfType<PlayersPool>();
+            playersPool = FindObjectOfType<GameManager>();
         }
 
         //private new void Start()

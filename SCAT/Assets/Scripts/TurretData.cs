@@ -17,7 +17,7 @@ namespace Scripts
         [SerializeField] private float timeBetweenMoveWeapon = 0.3f;
         [SerializeField] private Transform pivotWeapon;
         // internal CompositeCollider2D collider2d;
-        [SerializeField] private PlayersPool playersPool;
+        [SerializeField] private GameManager playersPool;
         private float timeMove;
         private float timeSearch;
         [SerializeField] private float maxDirectionAngle;
@@ -26,7 +26,7 @@ namespace Scripts
 
         private void Awake()
         {
-            playersPool = FindObjectOfType<PlayersPool>();
+            playersPool = FindObjectOfType<GameManager>();
         }
 
 

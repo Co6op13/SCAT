@@ -9,14 +9,14 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - DestroyWall
+  - DestroyArea
   - Water
   - UI
   - EnemyProjectile
   - Enemy
   - PlayerProjectile
   - Player
-  - ActivationWall
+  - ActivationArea
   - SpawnPoint
   - EdgeScreen
   - EnemyRocket
