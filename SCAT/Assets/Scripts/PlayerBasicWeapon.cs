@@ -9,6 +9,12 @@ public class PlayerBasicWeapon : MonoBehaviour , iPlayerWeapon
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firePoint;
     [SerializeField] private bool isReloading = false;
+    private Transform parentObject;
+
+    private void Start()
+    {
+        parentObject = Camera.main.transform;
+    }
 
     public void MakeShot()
     {        
@@ -16,7 +22,8 @@ public class PlayerBasicWeapon : MonoBehaviour , iPlayerWeapon
         {
             isReloading = true;
             StartCoroutine(Reload());
-            Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);            
+            var bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation) as GameObject ;
+            bullet.transform.parent = parentObject;
         }
     }
 

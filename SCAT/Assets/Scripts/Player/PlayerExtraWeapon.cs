@@ -17,6 +17,7 @@ public class PlayerExtraWeapon : MonoBehaviour
     //private bool isMovePositive = true;
     private int position = 0;
     private PlayerData player;
+    private Transform parentObject;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -24,7 +25,7 @@ public class PlayerExtraWeapon : MonoBehaviour
     }
     void Start()
     {
-        
+        parentObject = Camera.main.transform;
         deltaTimeMove = Time.time;
     }
 
@@ -43,8 +44,11 @@ public class PlayerExtraWeapon : MonoBehaviour
             isReloading = true;
             StartCoroutine(Reload());
 
-            Instantiate(bulletPrefab, topFirePoint.position, topFirePoint.rotation);
-            Instantiate(bulletPrefab, bootomFirePoint.position, bootomFirePoint.rotation);
+            var topBullet = Instantiate(bulletPrefab, topFirePoint.position, topFirePoint.rotation)as GameObject ;
+            var bootomBullet =  Instantiate(bulletPrefab, bootomFirePoint.position, bootomFirePoint.rotation) as GameObject;
+            topBullet.transform.parent = parentObject;
+            bootomBullet.transform.parent = parentObject;
+
         }
     }
 
