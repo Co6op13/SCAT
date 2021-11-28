@@ -13,7 +13,6 @@ namespace Scripts
         [SerializeField] private float speedRotation;
         [SerializeField] internal int maxHP;
         [SerializeField] internal Transform target;
-        [SerializeField] private float timeBetweenSearch = 1f;
         [SerializeField] private float timeBetweenMoveWeapon = 0.3f;
         [SerializeField] private Transform pivotWeapon;
         // internal CompositeCollider2D collider2d;
@@ -80,9 +79,6 @@ namespace Scripts
             Vector3 direction = (target.position - transform.position).normalized;
             float directionAngle = GeneralMetods.GetAngleFromVectorFloat(direction);
 
-
-
-            //Debug.Log(pivotWeapon.eulerAngles.z);
             if (maxDirectionAngle < minDirectionAngle)
             {
                 if (directionAngle < minDirectionAngle & directionAngle > 180f)
@@ -129,13 +125,12 @@ namespace Scripts
 
         private void OnDrawGizmos()
         {
-            Debug.DrawRay(transform.position, GeneralMetods.GetVectorFromAngle(targetDirectionAngle) * 5, Color.red);
+            Debug.DrawRay(transform.position, GeneralMetods.GetVectorFromAngle
+                (targetDirectionAngle) * 5, Color.white);
             Debug.DrawRay(transform.position, GeneralMetods.GetVectorFromAngle(maxAngleWeapon +
-                transform.eulerAngles.z) * 3, Color.white);
+                transform.eulerAngles.z) * 3, Color.red);
             Debug.DrawRay(transform.position, GeneralMetods.GetVectorFromAngle(minAngleWeapon +
-                transform.eulerAngles.z) * 3, Color.black);
-        }
-
-        
+                transform.eulerAngles.z) * 3, Color.blue);
+        }        
     }
 }

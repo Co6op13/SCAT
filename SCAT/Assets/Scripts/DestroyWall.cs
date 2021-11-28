@@ -15,7 +15,7 @@ public class DestroyWall : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {        
-        Debug.Log("coll");
+        //Debug.Log("coll");
         Destroy(collision.gameObject);
     }
 

@@ -131,7 +131,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHP: 0
   prefabDie: {fileID: 0}
-  isNeedParentObject: 1
   parentObject: {fileID: 3690309384409557687}
   parentHP: {fileID: 0}
   isChildrenObject: 0
@@ -637,11 +636,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1061c5cead2dbfb42a8e451ac7efe3fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isActive: 0
+  isActive: 1
+  damage: 1
   reloadSpeed: 2
+  isReload: 1
   bulletPrefab: {fileID: 5150079670303691627, guid: afe3938c6e659dd44bcd6ed3b8ea41e6, type: 3}
   firePoint: {fileID: 3690309385280612885}
-  damage: 1
 --- !u!232 &3690309384409557324
 DistanceJoint2D:
   m_ObjectHideFlags: 0

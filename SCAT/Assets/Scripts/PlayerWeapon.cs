@@ -27,7 +27,7 @@ public class PlayerWeapon : MonoBehaviour
     {
         if (player.isShooting)
         {
-            weaponScript.MakeShot();
+            weaponScript.TryMakeShot();
         }
     }
 

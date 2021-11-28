@@ -2,37 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerBasicWeapon : MonoBehaviour , iPlayerWeapon
+public class PlayerBasicWeapon : BasicWeapon , iPlayerWeapon
 {
-    //[SerializeField] private bool isActive;
-    [SerializeField] private float reloadSpeed;
-    [SerializeField] private GameObject bulletPrefab;
-    [SerializeField] private Transform firePoint;
-    [SerializeField] private bool isReloading = false;
-    private Transform parentObject;
-
-    private void Start()
+    public void TryMakeShot()
     {
-        parentObject = Camera.main.transform;
-    }
-
-    public void MakeShot()
-    {        
-        if (!isReloading)
+        if (isReload)
         {
-            isReloading = true;
-            StartCoroutine(Reload());
-            var bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation) as GameObject ;
-            bullet.transform.parent = parentObject;
+            isReload = false;
+            MakeShot(bulletPrefab, firePoint.position, firePoint.rotation);
+            StartCoroutine(Reload(reloadSpeed, (callback) => isReload = callback));
         }
     }
-
-    IEnumerator Reload()
-    {
-        yield return new WaitForSeconds(reloadSpeed);
-        isReloading = false;
-    }
-
-
-
 }

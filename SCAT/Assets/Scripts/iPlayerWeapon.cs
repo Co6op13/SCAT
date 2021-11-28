@@ -1,4 +1,4 @@
 ﻿public interface iPlayerWeapon
 {
-   void MakeShot();
+   void TryMakeShot();
 }

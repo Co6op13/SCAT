@@ -16,6 +16,7 @@ public class SpawnPoint : MonoBehaviour, iActivation
 
     public bool IsActive { get => isActive;}
 
+
     private void Start()
     {
         parantObject = transform.parent;
@@ -62,6 +63,12 @@ public class SpawnPoint : MonoBehaviour, iActivation
     {
        // Debug.Log(gameObject.name + " activation");
         isActive = true;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawSphere(transform.position, 1f);
     }
 
 }
