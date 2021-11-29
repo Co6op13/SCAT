@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class BasicWeapon : MonoBehaviour
+public abstract class BasicWeapon : MonoBehaviour, iActivation
 {
     [SerializeField] protected bool isActive;
     [SerializeField] protected int damage;
@@ -32,9 +32,9 @@ public abstract class BasicWeapon : MonoBehaviour
         callback(true);
         yield break;
     }
-
-    void ActivationWeapon()
+ 
+    public void ActivationObject()
     {
-        isActive = true;
+         isActive = true;
     }
 }

@@ -12,8 +12,6 @@ public class SpawnPoint : MonoBehaviour, iActivation
     [SerializeField] private float timeDelay;
     [SerializeField] private Transform parantObject;
     
-    private bool isWait = false;
-
     public bool IsActive { get => isActive;}
 
 
@@ -35,34 +33,21 @@ public class SpawnPoint : MonoBehaviour, iActivation
         enemy.SetActive(true);
     }
 
-    private void FixedUpdate()
+    IEnumerator Spawn()
     {
-        if (amountEnemy > 0)
+        for (int i = 0; i < amountEnemy; i++)
         {
-            if (isActive && !isWait)
-            {
-                isWait = true;
-                MakeSpawn();
-                amountEnemy -= 1;
-                StartCoroutine(WaitDelay());
-            }
+            MakeSpawn();
+            yield return new WaitForSeconds(timeDelay);
         }
-        else
-        {
-            gameObject.SetActive(false);
-          //  Debug.Log("I'am " + gameObject.name + "off");
-        }
+        Destroy(gameObject);
+        yield break;
     }
-    IEnumerator WaitDelay()
-    {
-        yield return new WaitForSeconds(timeDelay);
-        isWait = false;
-    }
+   
 
     public void ActivationObject()
     {
-       // Debug.Log(gameObject.name + " activation");
-        isActive = true;
+        StartCoroutine(Spawn());
     }
 
     private void OnDrawGizmos()

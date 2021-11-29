@@ -5,7 +5,7 @@ using System;
 
 namespace Scripts
 {
-    public class TurretData : MonoBehaviour, iHP
+    public class TurretData : MonoBehaviour, iHP, iActivation
     {
         [SerializeField] private bool isActive;
         [SerializeField, Range(0, 359)] private float maxAngleWeapon;
@@ -18,7 +18,7 @@ namespace Scripts
         // internal CompositeCollider2D collider2d;
         [SerializeField] private GameManager playersPool;
         private float timeMove;
-        private float timeSearch;
+        private float timeSearch = 0.1f;
         [SerializeField] private float maxDirectionAngle;
         [SerializeField] private float minDirectionAngle;
         [SerializeField] private float targetDirectionAngle = 90;
@@ -35,7 +35,6 @@ namespace Scripts
             target = playersPool.GetNearestTarger(transform.position);
             maxDirectionAngle = GetRangePositionWeapon(maxAngleWeapon);
             minDirectionAngle = GetRangePositionWeapon(minAngleWeapon);
-
         }
 
         private float GetRangePositionWeapon(float dir)
@@ -48,29 +47,29 @@ namespace Scripts
 
         private void FixedUpdate()
         {
-
-            if (timeMove < Time.time)
+            if (isActive)
             {
-                if (timeSearch < Time.time || target == null)
+                if (timeMove < Time.time)
                 {
-                    try
+                    if (timeSearch < Time.time || target == null)
                     {
-                        target = playersPool.GetNearestTarger(transform.position);
-                    }
-                    catch
-                    {
-                        Debug.Log("There is no live player or somthing wrong");
-                    }
+                        try
+                        {
+                            target = playersPool.GetNearestTarger(transform.position);
+                        }
+                        catch
+                        {
+                            Debug.Log("There is no live player or somthing wrong");
+                        }
 
-                    timeSearch = Time.time + timeSearch;
+                        timeSearch = Time.time + timeSearch;
+                    }
+                    timeMove = Time.time + timeBetweenMoveWeapon;
+                    if (target != null)
+                        targetDirectionAngle = GetDirection(target);
                 }
-                timeMove = Time.time + timeBetweenMoveWeapon;
-                if (target != null)
-                    targetDirectionAngle = GetDirection(target);
+                MoveWeapon(targetDirectionAngle);
             }
-
-
-            MoveWeapon(targetDirectionAngle);
         }
 
         private float GetDirection(Transform target)
@@ -131,6 +130,11 @@ namespace Scripts
                 transform.eulerAngles.z) * 3, Color.red);
             Debug.DrawRay(transform.position, GeneralMetods.GetVectorFromAngle(minAngleWeapon +
                 transform.eulerAngles.z) * 3, Color.blue);
-        }        
+        }
+
+        public void ActivationObject()
+        {
+            isActive = true;
+        }
     }
 }

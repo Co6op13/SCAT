@@ -72,7 +72,7 @@ public class SplineWalker : MonoBehaviour, iActivation
     private void FixedUpdate()
     {
         if (isActiv)
-        transform.localPosition = position;
+            transform.localPosition = position;
     }
 
     public void ActivationObject()

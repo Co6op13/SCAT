@@ -4,8 +4,9 @@ using UnityEngine;
 
 namespace Scripts
 {
-    public class EnemyLianaData : MonoBehaviour, iHP
+    public class EnemyLianaData : MonoBehaviour, iHP, iActivation
     {
+        [SerializeField] private bool isActive;
         [SerializeField] internal Transform head;
         [SerializeField] private int maxHP;
         [SerializeField] internal float lianaLength;
@@ -21,7 +22,10 @@ namespace Scripts
         [SerializeField] internal Transform target;
         private float direxctionX; // if player to the left -1 else +1
 
-
+        private void Awake()
+        {
+            playersPool = FindObjectOfType<GameManager>();
+        }
         public int GetMaxHP()
         {
             return (maxHP);
@@ -30,13 +34,16 @@ namespace Scripts
 
         private void FixedUpdate()
         {
-            ///////// нужно переделать чтобы не постоянно сканировал а раз в секунду например
-            /// need change. to get nearest Target not everytime
-            Transform nearestTarget = playersPool.GetNearestTarger(transform.position);
-            targetDirection = (nearestTarget.position - transform.position).normalized;
-            targetDirectionAngle = GeneralMetods.GetAngleFromVectorFloat(targetDirection);
-            movePosition = GetMovePostiion(targetDirection, nearestTarget.position);
-            MoveHead(movePosition, targetDirectionAngle);
+            if (isActive)
+            {
+                ///////// нужно переделать чтобы не постоянно сканировал а раз в секунду например
+                /// need change. to get nearest Target not everytime
+                Transform nearestTarget = playersPool.GetNearestTarger(transform.position);
+                targetDirection = (nearestTarget.position - transform.position).normalized;
+                targetDirectionAngle = GeneralMetods.GetAngleFromVectorFloat(targetDirection);
+                movePosition = GetMovePostiion(targetDirection, nearestTarget.position);
+                MoveHead(movePosition, targetDirectionAngle);
+            }
         }
 
         private Vector3 GetMovePostiion(Vector3 directionToTarget, Vector3 playerPosition)
@@ -69,6 +76,11 @@ namespace Scripts
             head.transform.eulerAngles = new Vector3(0f, 0f, directionAngle);
             head.transform.position = Vector3.MoveTowards(head.position, moveDirection,
                 speedMovemeth * Time.fixedDeltaTime);
+        }
+
+        public void ActivationObject()
+        {
+            isActive = true;
         }
     }
 }

@@ -13,9 +13,14 @@ public class ActivationArea : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {     
-        if (collision.gameObject.GetComponent<iActivation>() != null)
+
+        if (collision.gameObject.GetComponents<iActivation>() != null)
         {
-            collision.gameObject.GetComponent<iActivation>().ActivationObject();
+            var interfaces = collision.gameObject.GetComponents<iActivation>();
+            foreach(var i in interfaces)
+            {
+                i.ActivationObject();
+            }
         }
     }
 

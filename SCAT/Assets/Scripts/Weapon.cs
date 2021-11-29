@@ -15,4 +15,6 @@ public class Weapon : BasicWeapon
             StartCoroutine(Reload(reloadSpeed, (callback) => isReload = callback));         
         }
     }
+
+
 }

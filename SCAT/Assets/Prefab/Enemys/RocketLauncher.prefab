@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3734672068360491704}
   - component: {fileID: 3734672068360491711}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3734672068769799167}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Firepoint (2)
   m_TagString: Untagged
   m_Icon: {fileID: -5938655980376293919, guid: 0000000000000000d000000000000000, type: 0}
@@ -121,7 +121,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3734672068905620472}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Firepoint
   m_TagString: Untagged
   m_Icon: {fileID: -5938655980376293919, guid: 0000000000000000d000000000000000, type: 0}
@@ -155,7 +155,7 @@ GameObject:
   - component: {fileID: 3734672069523473530}
   - component: {fileID: 3734672069523473529}
   - component: {fileID: 3734672069523473528}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RocketLauncher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -190,17 +190,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ec15f7d47e018e42a6b33eb129798ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isActive: 1
+  isActive: 0
   damage: 5
   reloadSpeed: 1
   isReload: 1
+  bulletPrefab: {fileID: 6920956368473301719, guid: 4fc8df9a63e9e4444a7c1e106dd62749, type: 3}
+  firePoint: {fileID: 0}
   delayLaunchRocket: 0.3
   firePoints:
   - {fileID: 3734672068905620472}
   - {fileID: 3734672069815018944}
   - {fileID: 3734672068769799167}
   - {fileID: 3734672070250022996}
-  bulletPrefab: {fileID: 6920956368473301719, guid: 4fc8df9a63e9e4444a7c1e106dd62749, type: 3}
 --- !u!114 &3734672069523473530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,7 +275,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3734672069815018944}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Firepoint (1)
   m_TagString: Untagged
   m_Icon: {fileID: -5938655980376293919, guid: 0000000000000000d000000000000000, type: 0}
@@ -305,7 +306,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3734672070069966703}
   - component: {fileID: 3734672070069966702}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -390,7 +391,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3734672070250022996}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Firepoint (3)
   m_TagString: Untagged
   m_Icon: {fileID: -5938655980376293919, guid: 0000000000000000d000000000000000, type: 0}

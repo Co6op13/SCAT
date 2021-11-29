@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8115679031241437136}
   - component: {fileID: 8115679031241437151}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BodyGFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8115679031902828005}
   - component: {fileID: 8115679031902828004}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 8477692544330125077}
   - component: {fileID: 8115679031999702584}
   - component: {fileID: 8115679031999702585}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Turret (1)
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
@@ -215,13 +215,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 725e17c8f5690074c994b271be59b5e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isActive: 0
   maxAngleWeapon: 130
   minAngleWeapon: 50
   speedRotation: 0.2
   maxHP: 5
   target: {fileID: 0}
-  timeBetweenSearch: 1
   timeBetweenMoveWeapon: 0.3
   pivotWeapon: {fileID: 8115679032057494594}
   playersPool: {fileID: 0}
@@ -240,7 +238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1061c5cead2dbfb42a8e451ac7efe3fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isActive: 1
+  isActive: 0
   damage: 5
   reloadSpeed: 1
   isReload: 1
@@ -319,7 +317,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8115679032057494594}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PivotPoint
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -350,7 +348,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8115679032187957912}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: -5938655980376293919, guid: 0000000000000000d000000000000000, type: 0}
@@ -381,7 +379,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8115679033187830134}
   - component: {fileID: 8115679033187830133}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GodyGFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}

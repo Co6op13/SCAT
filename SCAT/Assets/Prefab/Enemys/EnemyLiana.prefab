@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3690309383466874710}
   - component: {fileID: 3690309383466874711}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 786143317}
   - component: {fileID: 3690309383895836020}
   - component: {fileID: 786143318}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 3690309383977578753}
   - component: {fileID: 3690309383977578752}
   - component: {fileID: 3690309383977578754}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Body (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -291,7 +291,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3690309384017283203}
   - component: {fileID: 3690309384017283228}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -375,7 +375,7 @@ GameObject:
   - component: {fileID: 3690309384244538577}
   - component: {fileID: 3690309384244538576}
   - component: {fileID: 3690309384244538578}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Body (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -475,7 +475,7 @@ GameObject:
   - component: {fileID: 3690309384303722123}
   - component: {fileID: 3690309384303722122}
   - component: {fileID: 3690309384303722116}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Body (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -577,7 +577,7 @@ GameObject:
   - component: {fileID: 3690309384409557324}
   - component: {fileID: 3690309384409557683}
   - component: {fileID: 3690309384409557325}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemyLiana
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -616,6 +616,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9915d8fc7f50c9f4fb9883d88ae9ccfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isActive: 0
   head: {fileID: 3690309383895836026}
   maxHP: 20
   lianaLength: 9
@@ -636,7 +637,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1061c5cead2dbfb42a8e451ac7efe3fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isActive: 1
+  isActive: 0
   damage: 1
   reloadSpeed: 2
   isReload: 1
@@ -718,7 +719,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3690309384628525372}
   - component: {fileID: 3690309384628525373}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -800,7 +801,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3690309384673391812}
   - component: {fileID: 3690309384673391813}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -882,7 +883,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3690309384760981212}
   - component: {fileID: 3690309384760981213}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -966,7 +967,7 @@ GameObject:
   - component: {fileID: 3690309384881803290}
   - component: {fileID: 3690309384881803289}
   - component: {fileID: 3690309384881803291}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Body (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1064,7 +1065,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3690309385062882324}
   - component: {fileID: 3690309385062882325}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1147,7 +1148,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3690309385104333648}
   - component: {fileID: 3690309385104333649}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1228,7 +1229,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3690309385280612885}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Firepoint
   m_TagString: Untagged
   m_Icon: {fileID: -5938655980376293919, guid: 0000000000000000d000000000000000, type: 0}
