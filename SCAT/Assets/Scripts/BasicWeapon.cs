@@ -11,7 +11,10 @@ public abstract class BasicWeapon : MonoBehaviour, iActivation
     [SerializeField] protected GameObject bulletPrefab;
     [SerializeField] protected Transform firePoint;
     protected Transform parentObject;
+    protected Vector3 velocity;
+    
     public int Damage { set => damage = value; }
+
 
     protected virtual void Start()
     {
@@ -22,9 +25,14 @@ public abstract class BasicWeapon : MonoBehaviour, iActivation
     {
         var bullet = Instantiate(prefab, firePoint, quaternion) as GameObject;
         bullet.GetComponent<iProjectile>().SetDamage(damage);
-        bullet.transform.parent = parentObject;
+        SetParent(bullet);
+
     }
 
+    protected virtual void SetParent(GameObject o)
+    {
+        o.transform.parent = parentObject;
+    }
 
     protected IEnumerator  Reload(float waitTime, System.Action<bool> callback)
     {

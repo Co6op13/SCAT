@@ -10,16 +10,12 @@ namespace Scripts
         [SerializeField]private float delayFly = 1;
         [SerializeField] private GameManager playersPool;
 
-        private void Awake()
+
+        protected override void Awake()
         {
             playersPool = FindObjectOfType<GameManager>();
+            base.Awake();
         }
-
-        //private new void Start()
-        //{
-        //    delayFly = delayFly + Time.time;
-           
-        //}
 
         void FixedUpdate()
         {
@@ -30,9 +26,9 @@ namespace Scripts
                 float targetDirectionAngle = GeneralMetods.GetAngleFromVectorFloat(targetDirection);
                 Debug.DrawRay(transform.position, GeneralMetods.GetVectorFromAngle(targetDirectionAngle) * 5, Color.red);
                 TurnDirection(targetDirectionAngle + 90);
-                Move();               
+              
             }
-
+            Move();
             if (Time.time > lifeTime)
             {
                 Destroy(gameObject);
@@ -41,7 +37,7 @@ namespace Scripts
 
         void Move ()
         {
-            transform.Translate(Vector3.right * speedMovement * Time.fixedDeltaTime);
+            rb2d.velocity = transform.right * speedMovement;
         }    
 
         void TurnDirection (float directionAngle)
@@ -49,5 +45,7 @@ namespace Scripts
             transform.rotation = Quaternion.Slerp(transform.rotation,
             Quaternion.Euler(0f, 0f, directionAngle - 90), speedRotation * Time.fixedDeltaTime);
         }
+
+
     }
 }

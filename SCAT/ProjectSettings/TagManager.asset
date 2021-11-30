@@ -19,9 +19,9 @@ TagManager:
   - ActivationArea
   - SpawnPoint
   - EdgeScreen
-  - EnemyRocket
-  - Ground
   - 
+  - Ground
+  - EnemyRocket
   - 
   - 
   - 

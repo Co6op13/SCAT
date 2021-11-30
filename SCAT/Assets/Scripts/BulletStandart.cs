@@ -6,7 +6,7 @@ public class BulletStandart : BasicBullet
 {
     void FixedUpdate()
     {       
-        transform.Translate( Vector3.right * speedMovement * Time.fixedDeltaTime);
+        rb2d.velocity = transform.right *  speedMovement;
         if (Time.time > lifeTime)
         {
             Destroy(gameObject);

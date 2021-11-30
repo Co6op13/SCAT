@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Scripts
 {
-    public class EnemyLianaData : MonoBehaviour, iHP, iActivation
+    public class EnemyLiana : MonoBehaviour, iHP, iActivation
     {
         [SerializeField] private bool isActive;
         [SerializeField] internal Transform head;
@@ -28,7 +28,7 @@ namespace Scripts
         }
         public int GetMaxHP()
         {
-            return (maxHP);
+            return maxHP;
         }
 
 

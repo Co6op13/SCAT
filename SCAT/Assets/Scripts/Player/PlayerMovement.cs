@@ -23,13 +23,14 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        velocity = player.moveDirection;
+        velocity = (player.moveDirection).normalized;
         
     }
 
 
     private void FixedUpdate()
-    {        
-        transform.Translate(velocity * Time.fixedDeltaTime * player.speedMovement);     
+    {
+        player.rb2D.velocity = (velocity  * player.speedMovement);
+        //transform.Translate(velocity * Time.fixedDeltaTime * player.speedMovement);     
     }
 }

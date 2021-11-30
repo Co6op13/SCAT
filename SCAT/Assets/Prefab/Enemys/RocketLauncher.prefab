@@ -196,6 +196,7 @@ MonoBehaviour:
   isReload: 1
   bulletPrefab: {fileID: 6920956368473301719, guid: 4fc8df9a63e9e4444a7c1e106dd62749, type: 3}
   firePoint: {fileID: 0}
+  maxHP: 30
   delayLaunchRocket: 0.3
   firePoints:
   - {fileID: 3734672068905620472}
@@ -214,7 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05c46e8ae19f8374f92b6448a15dfff5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHP: 30
+  currentHP: 0
   prefabDie: {fileID: 0}
   parentObject: {fileID: 0}
   parentHP: {fileID: 0}

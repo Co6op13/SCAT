@@ -8,7 +8,13 @@ public abstract class BasicBullet : MonoBehaviour, iProjectile
     [SerializeField] protected float lifeTime = 10f;
     [SerializeField] protected int damage;
     [SerializeField] protected float speedMovement = 1;
+    protected Rigidbody2D rb2d;
     public float Speed { set => speedMovement = value; }
+
+    protected virtual void Awake()
+    {
+        rb2d = GetComponent<Rigidbody2D>();
+    }
 
     protected void Start()
     {
@@ -26,8 +32,7 @@ public abstract class BasicBullet : MonoBehaviour, iProjectile
             Debug.Log("hit in " + collision.name);
             collision.gameObject.GetComponent<HP>().GetDamage(damage);
             Destroy(gameObject);
-        }
-        if (collision.gameObject.GetComponent<DestroyWall>() != null)
-            Destroy(gameObject);
+        }       
     }
+
 }

@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RocketWeapon : BasicWeapon
+public class RocketWeapon : BasicWeapon,iHP
 {
+    [SerializeField] private int maxHP;
     [SerializeField] private float delayLaunchRocket;
     [SerializeField] private Transform[] firePoints;
 
@@ -26,5 +27,15 @@ public class RocketWeapon : BasicWeapon
         }
         StartCoroutine(Reload(reloadSpeed, (callback) => isReload = callback));
         yield break;
+    }
+
+   protected override void SetParent(GameObject o)
+    {
+        ///
+    }
+
+    public int GetMaxHP()
+    {
+        return maxHP;
     }
 }

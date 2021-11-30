@@ -16,7 +16,7 @@ public class HP : MonoBehaviour
         {
             livingObject = GetComponent<iHP>();
         }
-        else 
+        else
         {
             livingObject = parentObject.GetComponent<iHP>();
         }
