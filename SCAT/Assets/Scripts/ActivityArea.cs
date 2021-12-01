@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [ExecuteAlways]
-public class ActivationArea : MonoBehaviour
+public class ActivityArea : MonoBehaviour
 {
     [SerializeField] private Vector3 localScale;
     private void Start()
@@ -22,6 +22,11 @@ public class ActivationArea : MonoBehaviour
                 i.ActivationObject();
             }
         }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        collision.gameObject.SetActive(false);
     }
 
     private void OnDrawGizmos()

@@ -12,6 +12,7 @@ public abstract class BasicWeapon : MonoBehaviour, iActivation
     [SerializeField] protected Transform firePoint;
     protected Transform parentObject;
     protected Vector3 velocity;
+    protected BulletsObjectPooler bulletsObjectPooler;
     
     public int Damage { set => damage = value; }
 
@@ -19,13 +20,15 @@ public abstract class BasicWeapon : MonoBehaviour, iActivation
     protected virtual void Start()
     {
         parentObject = Camera.main.transform;
+        bulletsObjectPooler = BulletsObjectPooler.Instance;
     }
 
-    protected void MakeShot(GameObject prefab, Vector3 firePoint, Quaternion quaternion)
+    protected void MakeShot(GameObject prefab, Vector3 firePoint, Quaternion rotation)
     {
-        var bullet = Instantiate(prefab, firePoint, quaternion) as GameObject;
+        var bullet = bulletsObjectPooler.GetFromPool(bulletPrefab.name, firePoint, rotation);
+        //var bullet = Instantiate(prefab, firePoint, quaternion) as GameObject;
         bullet.GetComponent<iProjectile>().SetDamage(damage);
-        SetParent(bullet);
+        //SetParent(bullet);
 
     }
 

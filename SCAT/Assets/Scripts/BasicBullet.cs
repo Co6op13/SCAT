@@ -31,8 +31,10 @@ public abstract class BasicBullet : MonoBehaviour, iProjectile
         {
             Debug.Log("hit in " + collision.name);
             collision.gameObject.GetComponent<HP>().GetDamage(damage);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }       
     }
+
+    
 
 }

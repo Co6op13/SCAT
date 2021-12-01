@@ -7,10 +7,5 @@ public class BulletStandart : BasicBullet
     void FixedUpdate()
     {       
         rb2d.velocity = transform.right *  speedMovement;
-        if (Time.time > lifeTime)
-        {
-            Destroy(gameObject);
-        }
     }
-
 }

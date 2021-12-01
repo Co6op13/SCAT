@@ -49,7 +49,7 @@ public class HP : MonoBehaviour
                 {
                     Debug.Log(gameObject.name + " prefab Die is empty");
                 }
-                Destroy(gameObject);
+                gameObject.SetActive(false);
             }
         }
     }

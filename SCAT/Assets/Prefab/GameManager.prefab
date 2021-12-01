@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1197994510981430348}
   - component: {fileID: 1197994510981430347}
+  - component: {fileID: 2008805875}
+  - component: {fileID: 2008805874}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameManager
@@ -44,3 +46,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playersTransform: []
+--- !u!114 &2008805875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197994510981430346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5338ad44c1d9af64d81ddea373deb417, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentObject: {fileID: 0}
+  pools:
+  - prefab: {fileID: 5150079670303691627, guid: 85da2c871af27184a9771cd3644f7d83, type: 3}
+    size: 20
+  - prefab: {fileID: 5150079670303691627, guid: 16e4511408df13b4abe8cab55388a61f, type: 3}
+    size: 20
+  - prefab: {fileID: 5150079670303691627, guid: afe3938c6e659dd44bcd6ed3b8ea41e6, type: 3}
+    size: 30
+  - prefab: {fileID: 7500724719640989845, guid: 853f79eb9a9f19c4e8edd12fcc3bfe19, type: 3}
+    size: 20
+  - prefab: {fileID: 6920956368473301719, guid: 4fc8df9a63e9e4444a7c1e106dd62749, type: 3}
+    size: 30
+--- !u!114 &2008805874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197994510981430346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e6ed47dc855d3340acef58115de1a8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentObject: {fileID: 0}
+  pools:
+  - prefab: {fileID: 1376435853559745669, guid: 6731658b49ada7b40b4ef18ec58fd252, type: 3}
+    size: 10

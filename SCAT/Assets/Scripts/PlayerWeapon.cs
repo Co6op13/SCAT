@@ -10,6 +10,7 @@ public class PlayerWeapon : MonoBehaviour
     [SerializeField] private iPlayerWeapon weaponScript;
     [SerializeField] private GameObject[] weapons;
     
+    
     private PlayerData player;
     private void Awake()
     {
