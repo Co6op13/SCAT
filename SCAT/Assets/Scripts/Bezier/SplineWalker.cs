@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SplineWalker : MonoBehaviour, iActivation
+public class SplineWalker : MonoBehaviour
 {
     [SerializeField] private bool isActiv = false;
     const float normalizedSpeed = 0.01f;

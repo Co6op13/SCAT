@@ -21,10 +21,30 @@ public class HP : MonoBehaviour
             livingObject = parentObject.GetComponent<iHP>();
         }
     }
-    private void Start()
+
+    private void OnEnable()
     {
-        currentHP = livingObject.GetMaxHP();
+
+        //if (GetComponent<iHP>() != null)
+        //{
+        //    livingObject = GetComponent<iHP>();
+        //}
+        //else
+        //{
+        //    livingObject = parentObject.GetComponent<iHP>();
+        //}
+        if (livingObject == null)
+        {
+            Debug.LogWarning("Object with NAME = " + gameObject.name
+                + " doesn't have interface iHP!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        }
+        else
+            currentHP = livingObject.GetMaxHP();
     }
+    //private void Start()
+    //{
+        
+    //}
 
     public void GetDamage(int damage)
     {
@@ -49,9 +69,14 @@ public class HP : MonoBehaviour
                 {
                     Debug.Log(gameObject.name + " prefab Die is empty");
                 }
-                gameObject.SetActive(false);
+                Die();
             }
         }
+    }
+
+    private void Die()
+    {
+        gameObject.SetActive(false);
     }
 
     public void GetHeal(int heal)
