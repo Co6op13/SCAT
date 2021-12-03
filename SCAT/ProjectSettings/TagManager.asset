@@ -5,26 +5,26 @@ TagManager:
   serializedVersion: 2
   tags:
   - GameManager
-  - DestroyArea
+  - ActiviryArea
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - DestroyArea
+  - 
   - Water
   - UI
   - EnemyProjectile
   - Enemy
   - PlayerProjectile
   - Player
-  - ActivationArea
+  - ActivityArea
   - SpawnPoint
   - EdgeScreen
   - 
   - Ground
   - EnemyRocket
   - 
-  - 
+  - PlayerBullet
   - 
   - 
   - Bonus

@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerData : MonoBehaviour, iHP
+public class PlayerData : MonoBehaviour
 {
     [SerializeField] internal bool isAlive = true;
-    [SerializeField] internal float speedMovement;
-    [SerializeField] internal int maxHP;
+    [SerializeField] internal float speedMovement;    
     [SerializeField, Range(0.01f,0.1f)] internal float speedMoveExtraGun = 0.05f;
     [SerializeField] internal bool isExtraGunLocked = false;
     [SerializeField] private GameManager playersPool;
@@ -44,17 +43,4 @@ public class PlayerData : MonoBehaviour, iHP
         input = GetComponent<PlayerInput>();
         rb2D = GetComponent<Rigidbody2D>();
     }
-
-    
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    public int GetMaxHP()
-    {
-        return maxHP;
-    }
-    
 }

@@ -1,76 +1,35 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class HP : MonoBehaviour
+public class HP : MonoBehaviour,iHP
 {
+    [SerializeField] private int maxHP;
     [SerializeField] internal int currentHP;
     [SerializeField] private GameObject prefabDie;
-    [SerializeField] private GameObject parentObject;  // if need
-    [SerializeField] private HP parentHP;
-    [SerializeField] private bool isChildrenObject = false;
-    private iHP livingObject;
-
-    private void Awake()
-    {
-        if (GetComponent<iHP>() != null)
-        {
-            livingObject = GetComponent<iHP>();
-        }
-        else
-        {
-            livingObject = parentObject.GetComponent<iHP>();
-        }
-    }
 
     private void OnEnable()
     {
-
-        //if (GetComponent<iHP>() != null)
-        //{
-        //    livingObject = GetComponent<iHP>();
-        //}
-        //else
-        //{
-        //    livingObject = parentObject.GetComponent<iHP>();
-        //}
-        if (livingObject == null)
-        {
-            Debug.LogWarning("Object with NAME = " + gameObject.name
-                + " doesn't have interface iHP!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-        }
-        else
-            currentHP = livingObject.GetMaxHP();
+        currentHP = maxHP;
     }
-    //private void Start()
-    //{
-        
-    //}
 
     public void GetDamage(int damage)
     {
-        if (isChildrenObject == true)
+        if (currentHP - damage >= 0)
         {
-            parentHP.GetDamage(damage);
-            return;
+            currentHP -= damage;
         }
         else
         {
-            if (currentHP - damage >= 0)
+            currentHP = 0;
+            try
             {
-                currentHP -= damage;
+                Instantiate(prefabDie, transform.position, transform.rotation);
             }
-            else
+            catch
             {
-                try
-                {
-                    Instantiate(prefabDie, transform.position, transform.rotation);
-                }
-                catch
-                {
-                    Debug.Log(gameObject.name + " prefab Die is empty");
-                }
-                Die();
+                Debug.Log(gameObject.name + " prefab Die is empty");
             }
+            Die();
         }
     }
 
@@ -81,11 +40,11 @@ public class HP : MonoBehaviour
 
     public void GetHeal(int heal)
     {
-        if (currentHP + heal < livingObject.GetMaxHP())
+        if (currentHP + heal < maxHP)
         {
             currentHP += heal;
         }
         else
-            currentHP = livingObject.GetMaxHP();
+            currentHP = maxHP;
     }
 }

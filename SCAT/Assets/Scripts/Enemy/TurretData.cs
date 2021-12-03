@@ -5,13 +5,13 @@ using System;
 
 namespace Scripts
 {
-    public class TurretData : MonoBehaviour, iHP, iActivation
+    public class TurretData : MonoBehaviour
     {
-        [SerializeField] private bool isActive;
+        //[SerializeField] private bool isActive;
         [SerializeField, Range(0, 359)] private float maxAngleWeapon;
         [SerializeField, Range(0, 359)] private float minAngleWeapon;
         [SerializeField] private float speedRotation;
-        [SerializeField] internal int maxHP;
+        //[SerializeField] internal int maxHP;
         [SerializeField] internal Transform target;
         [SerializeField] private float timeBetweenMoveWeapon = 0.3f;
         [SerializeField] private Transform pivotWeapon;
@@ -46,29 +46,27 @@ namespace Scripts
 
         private void FixedUpdate()
         {
-            if (isActive)
+            if (timeMove < Time.time)
             {
-                if (timeMove < Time.time)
+                if (timeSearch < Time.time || target == null)
                 {
-                    if (timeSearch < Time.time || target == null)
+                    try
                     {
-                        try
-                        {
-                            target = playersPool.GetNearestTarger(transform.position);
-                        }
-                        catch
-                        {
-                            Debug.Log("There is no live player or somthing wrong");
-                        }
-
-                        timeSearch = Time.time + timeSearch;
+                        target = playersPool.GetNearestTarger(transform.position);
                     }
-                    timeMove = Time.time + timeBetweenMoveWeapon;
-                    if (target != null)
-                        targetDirectionAngle = GetDirection(target);
+                    catch
+                    {
+                        Debug.Log("There is no live player or somthing wrong");
+                    }
+
+                    timeSearch = Time.time + timeSearch;
                 }
-                MoveWeapon(targetDirectionAngle);
+                timeMove = Time.time + timeBetweenMoveWeapon;
+                if (target != null)
+                    targetDirectionAngle = GetDirection(target);
             }
+            MoveWeapon(targetDirectionAngle);
+
         }
 
         private float GetDirection(Transform target)
@@ -116,10 +114,6 @@ namespace Scripts
 
         }
 
-        public int GetMaxHP()
-        {
-            return (maxHP);
-        }
 
         private void OnDrawGizmos()
         {
@@ -131,9 +125,9 @@ namespace Scripts
                 transform.eulerAngles.z) * 3, Color.blue);
         }
 
-        public void ActivationObject()
-        {
-            isActive = true;
-        }
+        //public void ActivationObject()
+        //{
+        //    isActive = true;
+        //}
     }
 }

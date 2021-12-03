@@ -2,12 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SnakeData : MonoBehaviour, iHP
+public class SnakeData : MonoBehaviour
 {
     [SerializeField] private float distanceBetweenSegments;
     [SerializeField] private Transform[] tails;
     [SerializeField] internal Transform target;
-    [SerializeField] internal int maxHP;
     [SerializeField] private int smoothSpeed;
     private List<Vector2> positionHistory;
     
@@ -34,11 +33,5 @@ public class SnakeData : MonoBehaviour, iHP
             i++;
         }
     }
-
-    public int GetMaxHP()
-    {
-        return maxHP;
-    }
-
    
 }

@@ -6,7 +6,7 @@ public class Weapon : BasicWeapon
 {
     private void FixedUpdate()
     {
-        if (isActive && isReload)
+        if (isReload)
         {
             isReload = false;
             MakeShot(bulletPrefab, firePoint.position, firePoint.rotation);

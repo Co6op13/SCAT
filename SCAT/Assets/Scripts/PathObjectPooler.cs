@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BezierObjectPooler : ObjectPooler
+public class PathObjectPooler : ObjectPooler
 {
     #region Singleton
-    public static BezierObjectPooler Instance;
+    public static PathObjectPooler Instance;
 
     private void Awake()
     {

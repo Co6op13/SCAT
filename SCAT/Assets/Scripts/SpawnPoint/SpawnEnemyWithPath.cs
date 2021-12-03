@@ -12,7 +12,7 @@ public class SpawnEnemyWithPath : SpawnPoint
     protected override void MakeSpawn()
     {
         enemy = EnemyObjectPooler.Instance.GetFromPool(prefabEnemy.name, transform.position, transform.rotation);
-        path = BezierObjectPooler.Instance.GetFromPool(prefabPath.name, transform.position, transform.rotation);
+        path = PathObjectPooler.Instance.GetFromPool(prefabPath.name, transform.position, transform.rotation);
         SplineWalker script = enemy.GetComponent<SplineWalker>();
         script.Path = path.GetComponent<BezierSpline>();
         script.SpeedMovement = enemySpeed;

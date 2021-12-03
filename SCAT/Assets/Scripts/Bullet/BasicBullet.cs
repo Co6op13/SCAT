@@ -5,7 +5,6 @@ using UnityEngine;
 [RequireComponent (typeof (BoxCollider2D))]
 public abstract class BasicBullet : MonoBehaviour, iProjectile
 {
-    [SerializeField] protected float lifeTime = 10f;
     [SerializeField] protected int damage;
     [SerializeField] protected float speedMovement = 1;
     protected Rigidbody2D rb2d;
@@ -16,10 +15,6 @@ public abstract class BasicBullet : MonoBehaviour, iProjectile
         rb2d = GetComponent<Rigidbody2D>();
     }
 
-    protected void Start()
-    {
-        lifeTime = Time.time + lifeTime;
-    }
     public void SetDamage(int damage)
     {
         this.damage = damage;
@@ -27,14 +22,20 @@ public abstract class BasicBullet : MonoBehaviour, iProjectile
 
     protected void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<HP>() != null)
+        if (collision.gameObject.GetComponent<iHP>() != null)
         {
             //Debug.Log("hit in " + collision.name);
-            collision.gameObject.GetComponent<HP>().GetDamage(damage);
+            collision.gameObject.GetComponent<iHP>().GetDamage(damage);
             gameObject.SetActive(false);
         }       
     }
 
-    
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "ActivityArea")
+            gameObject.SetActive(false);
+    }
+
+
 
 }

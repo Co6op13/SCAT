@@ -4,17 +4,11 @@ using UnityEngine;
 
 namespace Scripts
 {
-    public class BulletRocket : BasicBullet,iHP
+    public class BulletRocket : BasicBullet
     {
-        [SerializeField] private int maxHP;
         [SerializeField] private float speedRotation;
-        [SerializeField]private float delayFly = 1;
         [SerializeField] private GameManager playersPool;
 
-        public int GetMaxHP()
-        {
-            return maxHP;
-        }
 
         protected override void Awake()
         {
@@ -24,20 +18,13 @@ namespace Scripts
 
         void FixedUpdate()
         {
-            if (delayFly > Time.deltaTime)
-            {
-                Transform nearestTarget = playersPool.GetNearestTarger(transform.position);
-                Vector3 targetDirection = (nearestTarget.position - transform.position);
-                float targetDirectionAngle = GeneralMetods.GetAngleFromVectorFloat(targetDirection);
-                Debug.DrawRay(transform.position, GeneralMetods.GetVectorFromAngle(targetDirectionAngle) * 5, Color.red);
-                TurnDirection(targetDirectionAngle + 90);
-              
-            }
+            Transform nearestTarget = playersPool.GetNearestTarger(transform.position);
+            Vector3 targetDirection = (nearestTarget.position - transform.position);
+            float targetDirectionAngle = GeneralMetods.GetAngleFromVectorFloat(targetDirection);
+            Debug.DrawRay(transform.position, GeneralMetods.GetVectorFromAngle(targetDirectionAngle) * 5, Color.red);
+            TurnDirection(targetDirectionAngle + 90);
+
             Move();
-            if (Time.time > lifeTime)
-            {
-                Destroy(gameObject);
-            }
         }
 
         void Move ()

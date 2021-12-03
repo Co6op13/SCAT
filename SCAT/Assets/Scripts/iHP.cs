@@ -1,5 +1,4 @@
 ﻿public interface iHP  
 {
-    int GetMaxHP();
-   // int ChangeCurrentHP();
+    public void GetDamage(int damage);
 }

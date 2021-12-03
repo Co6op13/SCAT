@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace Scripts
 {
-    public class EnemyLiana : MonoBehaviour, iHP, iActivation
+    public class EnemyLiana : MonoBehaviour
     {
-        [SerializeField] private bool isActive;
+        //[SerializeField] private bool isActive;
         [SerializeField] internal Transform head;
-        [SerializeField] private int maxHP;
+        //[SerializeField] private int maxHP;
         [SerializeField] internal float lianaLength;
         [SerializeField] internal float speedMovemeth;
         [SerializeField] internal Transform[] playersTransform;
@@ -26,16 +26,16 @@ namespace Scripts
         {
             playersPool = FindObjectOfType<GameManager>();
         }
-        public int GetMaxHP()
-        {
-            return maxHP;
-        }
+        //public int GetMaxHP()
+        //{
+        //    return maxHP;
+        //}
 
 
         private void FixedUpdate()
         {
-            if (isActive)
-            {
+            //if (isActive)
+            //{
                 ///////// нужно переделать чтобы не постоянно сканировал а раз в секунду например
                 /// need change. to get nearest Target not everytime
                 Transform nearestTarget = playersPool.GetNearestTarger(transform.position);
@@ -43,7 +43,7 @@ namespace Scripts
                 targetDirectionAngle = GeneralMetods.GetAngleFromVectorFloat(targetDirection);
                 movePosition = GetMovePostiion(targetDirection, nearestTarget.position);
                 MoveHead(movePosition, targetDirectionAngle);
-            }
+            //}
         }
 
         private Vector3 GetMovePostiion(Vector3 directionToTarget, Vector3 playerPosition)
@@ -78,9 +78,6 @@ namespace Scripts
                 speedMovemeth * Time.fixedDeltaTime);
         }
 
-        public void ActivationObject()
-        {
-            isActive = true;
-        }
+        
     }
 }

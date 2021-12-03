@@ -213,11 +213,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05c46e8ae19f8374f92b6448a15dfff5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHP: 1
+  maxHP: 1
+  currentHP: 0
   prefabDie: {fileID: 0}
-  parentObject: {fileID: 0}
-  parentHP: {fileID: 0}
-  isChildrenObject: 0
 --- !u!114 &6920956368473301713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,7 +231,6 @@ MonoBehaviour:
   lifeTime: 10
   damage: 5
   speedMovement: 15
-  maxHP: 1
   speedRotation: 0.5
   delayFly: 3
   playersPool: {fileID: 0}
