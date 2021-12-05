@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6920956367249875177}
   - component: {fileID: 6920956367249875178}
-  m_Layer: 6
+  m_Layer: 15
   m_Name: Hexagon Flat-Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6920956367467814334}
   - component: {fileID: 6920956367467814335}
-  m_Layer: 6
+  m_Layer: 15
   m_Name: GFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 6920956368473301713}
   - component: {fileID: 2803254910778921833}
   - component: {fileID: 3439098069245263176}
-  m_Layer: 6
+  m_Layer: 15
   m_Name: Rocket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -228,11 +228,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0018ba7d703289c49ae6cbebd290b0f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTime: 10
   damage: 5
-  speedMovement: 15
-  speedRotation: 0.5
-  delayFly: 3
+  speedMovement: 12
+  speedRotation: 1
   playersPool: {fileID: 0}
 --- !u!61 &2803254910778921833
 BoxCollider2D:
@@ -291,7 +289,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6920956368488192697}
   - component: {fileID: 6920956368488192698}
-  m_Layer: 6
+  m_Layer: 15
   m_Name: GFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}

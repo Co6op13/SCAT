@@ -22,6 +22,11 @@ public abstract class BasicBullet : MonoBehaviour, iProjectile
 
     protected void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        {
+            gameObject.SetActive(false);
+        }
+
         if (collision.gameObject.GetComponent<iHP>() != null)
         {
             //Debug.Log("hit in " + collision.name);
@@ -30,12 +35,7 @@ public abstract class BasicBullet : MonoBehaviour, iProjectile
         }       
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.tag == "ActivityArea")
-            gameObject.SetActive(false);
-    }
-
+   
 
 
 }

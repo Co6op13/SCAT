@@ -47,9 +47,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isActive: 0
   prefabEnemy: {fileID: 1376435853559745669, guid: 6731658b49ada7b40b4ef18ec58fd252, type: 3}
-  color:
-    serializedVersion: 2
-    rgba: 4282861565
   prefabPath: {fileID: 499230787593104836, guid: 33e51d3b025993d41a43781e23900a75, type: 3}
   enemySpeed: 5
 --- !u!61 &674755304967003235
